@@ -1,0 +1,113 @@
+/* =========================
+   Custom Context Select
+   ========================= */
+.ctxSelect {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  position: relative;
+}
+
+.ctxLabel {
+  font-size: 11px;
+  color: #64748b;
+  padding-left: 2px;
+}
+
+.ctxTrigger {
+  appearance: none;
+  border: 1px solid #8993a5;
+  background: #fff;
+  border-radius: 5px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #0f172a;
+  min-height: 40px;
+}
+.ctxTrigger:hover {
+  background: #f8fafc;
+}
+.ctxTrigger.open {
+  border-color: #94a3b8;
+  box-shadow: 0 0 0 2px rgba(148,163,184,0.15);
+}
+
+.ctxValue {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ctxPlaceholder {
+  color: #94a3b8;
+}
+
+.ctxChevron {
+  font-size: 12px;
+  transition: transform 120ms ease;
+  opacity: 0.7;
+}
+.ctxChevron.open {
+  transform: rotate(180deg);
+}
+
+.ctxMenu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow:
+    0 10px 20px rgba(15, 23, 42, 0.08),
+    0 4px 8px rgba(15, 23, 42, 0.06);
+  z-index: 40;
+  padding: 6px;
+  max-height: 280px;
+  overflow: auto;
+}
+
+.ctxOption {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 13px;
+  color: #0f172a;
+}
+.ctxOption:hover {
+  background: #f1f5f9;
+}
+.ctxOption.active {
+  background: #e0f2fe;
+  color: #0369a1;
+  font-weight: 700;
+}
+
+.ctxOptionLabel {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ctxCheck {
+  font-size: 12px;
+}
+
+.ctxEmpty {
+  padding: 12px;
+  text-align: center;
+  font-size: 12px;
+  color: #94a3b8;
+}

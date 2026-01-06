@@ -1,0 +1,245 @@
+/* =========================
+   Professional Topbar
+   ========================= */
+.topbarPro {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #b7c1d5;
+    padding: var(--padding);
+    // display: grid;
+    // grid-template-columns: 1.2fr 1fr 1.2fr;
+    // gap: 12px;
+    // align-items: center;
+
+    .tb-top {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+
+        .tbRight {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            align-items: center;
+
+
+
+            .tbControls {
+                width: 50%;
+                display: flex;
+                justify-content: space-between;
+                align-items: end;
+                flex-wrap: wrap;
+
+
+                .tbFields {
+                    // display: flex;
+                    // flex-direction: column;
+                    // gap: 4px;
+                    width: 45%;
+                }
+
+
+            }
+
+
+
+
+
+            .tbUser {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                position: relative;
+                // padding: 8px 10px;
+                // border-radius: 14px;
+                // border: 1px solid #e5e7eb;
+                // background: #fff;
+                // min-width: 0;
+
+
+                .tbAvatar {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background: #afc5f7;
+                    color: #778fc8;
+                    display: grid;
+                    place-items: center;
+                    font-weight: 600;
+                }
+
+                .tbUserText {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2px;
+                    min-width: 0;
+
+                    .tbUserName {
+                        font-weight: 900;
+                        font-size: 0.8rem;
+                        color: #0f172a;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        max-width: 160px;
+                    }
+
+                    .tbUserRole {
+                        font-size: 0.7rem;
+                        color: #50617a;
+                        text-transform: lowercase;
+                    }
+
+
+
+                }
+
+                svg {
+                    font-size: 1.2rem;
+                    fill: #0f172a;
+                    font-weight: 700;
+                }
+
+                .user-dropdown {
+                    width: 100%;
+                    position: absolute;
+                    background: #fff;
+                    border: 1px solid var(--muted);
+                    top: 6vh;
+                    right: 0;
+                    border-radius: 5px;
+                    padding: 0.5rem;
+
+                    .user-link {
+                        font-size: 0.9rem;
+                        cursor: pointer;
+
+                        &:hover {
+                            font-weight: 600;
+                        }
+                    }
+
+                }
+
+
+            }
+
+
+        }
+
+
+
+    }
+}
+
+
+.sub-header {
+    width: 100%;
+    padding: 0.3rem var(--padding);
+
+
+    .tbLeft {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-width: 0;
+
+        .tbTitleRow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+        }
+
+        .tbTitle {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #0f172a;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 1.3rem;
+        }
+
+        .tbCrumbs {
+            min-width: 0;
+            overflow: hidden;
+        }
+    }
+
+
+}
+
+
+
+
+
+
+// .tbChip {
+//     display: inline-flex;
+//     align-items: center;
+//     gap: 8px;
+//     padding: 8px 10px;
+//     border-radius: 999px;
+//     border: 1px solid #e5e7eb;
+//     background: #fff;
+//     font-size: 12px;
+//     color: #334155;
+//     max-width: 320px;
+// }
+
+// .tbChipDot {
+//     width: 8px;
+//     height: 8px;
+//     border-radius: 999px;
+//     background: #cbd5e1;
+// }
+
+// .tbChipLabel {
+//     font-weight: 800;
+//     white-space: nowrap;
+// }
+
+// .tbChipDetail {
+//     color: #64748b;
+//     white-space: nowrap;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     max-width: 200px;
+// }
+
+// .tbChip.isLoading .tbChipDot {
+//     background: #eab308;
+// }
+
+// .tbChip.isReady .tbChipDot {
+//     background: #22c55e;
+// }
+
+// .tbChip.isError .tbChipDot {
+//     background: #ef4444;
+// }
+
+
+
+/* Responsive: stack nicely */
+// @media (max-width: 1080px) {
+//     .topbarPro {
+//         grid-template-columns: 1fr;
+//     }
+
+//     .tbCenter {
+//         justify-content: flex-start;
+//     }
+
+//     .tbRight {
+//         justify-content: flex-start;
+//         flex-wrap: wrap;
+//     }
+// }
