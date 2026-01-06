@@ -945,8 +945,8 @@ export default function FarmOverviewPage() {
             </div>
           )}
           <div className="muted" style={{ marginTop: 10 }}>
-            Open tasks: <b>{snapshot.ops.openTasks}</b> • Low stock:{" "}
-            <b>{snapshot.ops.lowStock}</b>
+            Open tasks: <b>{k.ops.openTasks}</b> • Low stock:{" "}
+            <b>{k.ops.lowStock}</b>
           </div>
         </Card>
 
