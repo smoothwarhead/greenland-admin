@@ -1,30 +1,29 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import { ROUTES } from "./routeRegistry";
 
-function PageShell({ title }) {
-  const params = useParams();
+
+const makeLazy = (loader) => React.lazy(loader);
+
+// ✅ Real overview pages
+const FarmOverview = makeLazy(() => import("../pages/farms/FarmOverviewPage.jsx"));
+const StoreOverview = makeLazy(() => import("../pages/stores/StoreOverviewPage.jsx"));
+
+// fallback stub for all other pages (keep your current stub)
+function Stub({ title }) {
   return (
     <div className="page">
-      {/* <div className="pageTitle">{title}</div> */}
-      <div className="pageMeta">
-        <code>params</code>: {JSON.stringify(params)}
-      </div>
-      <div className="card">
-        <div className="muted">This is a stub page.</div>
-      </div>
+      <div className="pageTitle">{title}</div>
+      <div className="proCard"><div className="muted">This is a placeholder page.</div></div>
     </div>
   );
 }
 
-// Convert an in-memory component to a lazy component (no code-splitting yet,
-// but gives you the Suspense architecture; later you can replace with real imports).
-const makeLazy = (Comp) =>
-  React.lazy(() => Promise.resolve({ default: Comp }));
-
 export const PAGE_COMPONENTS = Object.fromEntries(
   Object.values(ROUTES).map((r) => {
-    const Comp = () => <PageShell title={r.label} />;
-    return [r.key, makeLazy(Comp)];
+    if (r.key === "FARM_OVERVIEW") return [r.key, FarmOverview];
+    if (r.key === "STORE_OVERVIEW") return [r.key, StoreOverview];
+
+    const Comp = () => <Stub title={r.label} />;
+    return [r.key, React.lazy(() => Promise.resolve({ default: Comp }))];
   })
 );

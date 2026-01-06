@@ -10,7 +10,7 @@
     --btn-hover: rgb(114, 170, 215);
     --line: #243042;
     --btn: #1f6feb;
-    --gradient: linear-gradient(135deg,#111826,#0b0f14);
+    --gradient: linear-gradient(135deg, #111826, #0b0f14);
     --accent: #39d98a;
     --accent2: #f4c542;
 
@@ -44,7 +44,7 @@ a {
 .app {
     width: 100%;
     display: grid;
-    grid-template-columns: 24% 1fr;
+    grid-template-columns: 22% 1fr;
     min-height: 100vh;
 }
 
@@ -119,6 +119,27 @@ select {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 1.3rem 0;
+
+    height: 80vh;
+
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 1px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: none;
+        border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: transparent;
+        border-radius: 10px;
+    }
+
+  
 }
 
 .pageTitle {
@@ -143,9 +164,19 @@ select {
 }
 
 
-.crumb { font-size: 13px; color: #334155; }
-.crumb:hover { text-decoration: underline; }
+.crumb {
+    font-size: 13px;
+    color: #334155;
+}
 
-.btn { font-weight: 600; }
-.btn:active { transform: translateY(1px); }
+.crumb:hover {
+    text-decoration: underline;
+}
 
+.btn {
+    font-weight: 600;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}

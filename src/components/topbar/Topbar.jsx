@@ -189,9 +189,9 @@ export function Topbar() {
             <Breadcrumbs />
           </div>
 
-           <div className="tbTitleRow">
+           {/* <div className="tbTitleRow">
             <div className="tbTitle">{pageTitle}</div>
-          </div>
+          </div> */}
         </div>
       </div>
 

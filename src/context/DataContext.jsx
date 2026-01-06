@@ -72,6 +72,7 @@ export function DataProvider({ children }) {
         fromCache: false,
       });
       try {
+        
         const res = await loadFarmData(activeFarmId);
         if (cancelled) return;
         setFarmState({
