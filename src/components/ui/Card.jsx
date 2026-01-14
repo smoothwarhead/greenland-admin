@@ -1,14 +1,15 @@
 
-export default function Card({ title, children, right }) {
+export default function Card({ title, subtitle, right, children }) {
   return (
-    <section className="card">
-      {(title || right) && (
-        <div className="cardHead">
-          <h3>{title}</h3>
-          <div>{right}</div>
+    <div className="proCard">
+      <div className="proCardHead">
+        <div>
+          <div className="proCardTitle">{title}</div>
+          {subtitle ? <div className="proCardSub">{subtitle}</div> : null}
         </div>
-      )}
-      <div className="cardBody">{children}</div>
-    </section>
+        {right ? <div className="proCardRight">{right}</div> : null}
+      </div>
+      <div className="proCardBody">{children}</div>
+    </div>
   );
 }

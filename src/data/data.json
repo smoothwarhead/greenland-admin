@@ -1,0 +1,1882 @@
+{
+  "meta": {
+    "dataset": "greenland-admin-seed",
+    "version": "1.0.0",
+    "generatedAt": "2026-01-10T12:30:00.000Z",
+    "currency": "NGN",
+    "timezone": "Africa/Lagos"
+  },
+
+  "org": {
+    "farms": [
+      {
+        "id": "prime-estate",
+        "name": "Prime Estate",
+        "location": "Odeda, Ogun State, NG",
+        "capabilities": {
+          "layers": true,
+          "broilers": true,
+          "hatchery": true,
+          "breeders": true,
+          "feedMill": true,
+          "fertilizer": true,
+          "processing": true
+        }
+      },
+      {
+        "id": "golden-farm",
+        "name": "Golden Farm",
+        "location": "Iware, Oyo State, NG",
+        "capabilities": {
+          "hatchery": false,
+          "layers": true,
+          "broilers": false,
+          "breeders": false,
+          "feedMill": false,
+          "fertilizer": false,
+          "processing": false
+        }
+      },
+      {
+        "id": "atlas-farm",
+        "name": "Atlas Farm",
+        "location": "Ido, Oyo State, NG",
+        "capabilities": {
+          "layers": true,
+          "broilers": false,
+          "breeders": false,
+          "hatchery": false,
+          "feedMill": false,
+          "fertilizer": false,
+          "processing": false
+        }
+      }
+    ],
+    "stores": [
+      {
+        "id": "store-oluyole",
+        "name": "Oluyole Store",
+        "state": "Oyo",
+        "city": "Ibadan"
+      },
+      {
+        "id": "store-ojoo",
+        "name": "Ojoo Store",
+        "state": "Oyo",
+        "city": "Ibadan"
+      },
+      {
+        "id": "store-apata",
+        "name": "Apata Store",
+        "state": "Oyo",
+        "city": "Ibadan"
+      },
+      {
+        "id": "store-ogunpa",
+        "name": "Ogunpa Store",
+        "state": "Oyo",
+        "city": "Ibadan"
+      },
+      {
+        "id": "store-dugbe",
+        "name": "Dugbe Store",
+        "state": "Oyo",
+        "city": "Ibadan"
+      },
+      {
+        "id": "store-alesh",
+        "name": "Aleshinloye Store",
+        "state": "Oyo",
+        "city": "Ibadan"
+      },
+      {
+        "id": "store-ojaOba",
+        "name": "Oja Oba Store",
+        "state": "Oyo",
+        "city": "Ibadan"
+      },
+      {
+        "id": "store-bodija",
+        "name": "Bodija Store",
+        "state": "Oyo",
+        "city": "Ibadan"
+      },
+      {
+        "id": "store-agbeni",
+        "name": "Agbeni Store",
+        "state": "Oyo",
+        "city": "Ibadan"
+      },
+      {
+        "id": "store-sango",
+        "name": "Sango Store",
+        "state": "Oyo",
+        "city": "Ibadan"
+      },
+      {
+        "id": "store-molete",
+        "name": "Molete Store",
+        "state": "Oyo",
+        "city": "Ibadan"
+      },
+      {
+        "id": "store-basorun",
+        "name": "Basorun Store",
+        "state": "Oyo",
+        "city": "Ibadan"
+      },
+      {
+        "id": "store-iwoRoad",
+        "name": "Iwo road Store",
+        "state": "Oyo",
+        "city": "Ibadan"
+      },
+      {
+        "id": "store-orita",
+        "name": "Orita Store",
+        "state": "Oyo",
+        "city": "Ibadan"
+      },
+      {
+        "id": "store-eleyele",
+        "name": "Eleyele Store",
+        "state": "Oyo",
+        "city": "Ibadan"
+      }
+    ],
+
+    "vehicles": [
+      {
+        "id": "veh-01",
+        "plate": "OG-542-KJA",
+        "type": "Refrigerated Van",
+        "capacity": { "cratesEgg": 220, "broilers": 180 }
+      },
+      {
+        "id": "veh-02",
+        "plate": "LA-110-PPX",
+        "type": "Mini Truck",
+        "capacity": { "cratesEgg": 140, "broilers": 120 }
+      }
+    ]
+  },
+
+  "roles": [
+    "SUPER_ADMIN",
+    "FARM_ADMIN",
+    "POULTRY_MANAGER",
+    "CROP_MANAGER",
+    "STORE_MANAGER",
+    "CASHIER",
+    "INVENTORY_OFFICER",
+    "FINANCE",
+    "VET_OFFICER",
+    "DRIVER"
+  ],
+
+  "permissions": {
+    "core": ["OVERVIEW_VIEW", "FARM_SWITCH", "STORE_SWITCH"],
+    "poultry": [
+      "POULTRY_VIEW",
+      "LAYERS_VIEW",
+      "LAYERS_EDIT",
+      "BROILERS_VIEW",
+      "BROILERS_EDIT",
+      "BREEDERS_VIEW",
+      "BREEDERS_EDIT",
+      "HATCHERY_VIEW",
+      "HATCHERY_EDIT",
+      "VACCINATION_VIEW",
+      "VACCINATION_EDIT"
+    ],
+    "crops": ["CROPS_VIEW", "CROPS_EDIT"],
+    "inventory": ["INVENTORY_VIEW", "INVENTORY_EDIT"],
+    "transfers": ["TRANSFERS_VIEW", "TRANSFERS_CREATE", "TRANSFERS_RECEIVE"],
+    "pos": ["POS_VIEW", "POS_SELL", "POS_REFUND"],
+    "finance": ["FINANCE_VIEW", "FINANCE_EDIT", "EXPENSE_APPROVE"],
+    "compliance": [
+      "BIOSECURITY_VIEW",
+      "BIOSECURITY_EDIT",
+      "VISITOR_LOG_VIEW",
+      "VISITOR_LOG_EDIT"
+    ]
+  },
+
+  "users": [
+    {
+      "id": "u-super",
+      "name": "Shola Amos",
+      "role": "SUPER_ADMIN",
+      "scopes": {
+        "farms": ["prime-estate", "golden-farm", "atlas-farm"],
+        "stores": [
+          "store-oluyole",
+          "store-ojoo",
+          "store-apata",
+          "store-ogunpa",
+          "store-dugbe",
+          "store-alesh",
+          "store-ojaOba",
+          "store-bodija",
+          "store-agbeni",
+          "store-sango",
+          "store-molete",
+          "store-basorun",
+          "store-iwoRoad",
+          "store-orita",
+          "store-eleyele"
+        ]
+      },
+      "permissions": [
+        "OVERVIEW_VIEW",
+        "FARM_SWITCH",
+        "STORE_SWITCH",
+        "POULTRY_VIEW",
+        "LAYERS_VIEW",
+        "LAYERS_EDIT",
+        "BROILERS_VIEW",
+        "BROILERS_EDIT",
+        "BREEDERS_VIEW",
+        "BREEDERS_EDIT",
+        "HATCHERY_VIEW",
+        "HATCHERY_EDIT",
+        "CROPS_VIEW",
+        "CROPS_EDIT",
+        "INVENTORY_VIEW",
+        "INVENTORY_EDIT",
+        "TRANSFERS_VIEW",
+        "TRANSFERS_CREATE",
+        "TRANSFERS_RECEIVE",
+        "POS_VIEW",
+        "POS_SELL",
+        "POS_REFUND",
+        "FINANCE_VIEW",
+        "FINANCE_EDIT",
+        "EXPENSE_APPROVE",
+        "BIOSECURITY_VIEW",
+        "BIOSECURITY_EDIT",
+        "VISITOR_LOG_VIEW",
+        "VISITOR_LOG_EDIT",
+        "VACCINATION_VIEW",
+        "VACCINATION_EDIT"
+      ]
+    },
+    {
+      "id": "u-prime-admin",
+      "name": "James Nwabali",
+      "role": "FARM_ADMIN",
+      "scopes": { "farms": ["prime-estate"], "stores": [] },
+      "permissions": [
+        "OVERVIEW_VIEW",
+        "POULTRY_VIEW",
+        "LAYERS_VIEW",
+        "LAYERS_EDIT",
+        "BROILERS_VIEW",
+        "BROILERS_EDIT",
+        "BREEDERS_VIEW",
+        "BREEDERS_EDIT",
+        "HATCHERY_VIEW",
+        "HATCHERY_EDIT",
+        "CROPS_VIEW",
+        "CROPS_EDIT",
+        "INVENTORY_VIEW",
+        "INVENTORY_EDIT",
+        "TRANSFERS_VIEW",
+        "TRANSFERS_CREATE",
+        "BIOSECURITY_VIEW",
+        "BIOSECURITY_EDIT",
+        "VISITOR_LOG_VIEW",
+        "VISITOR_LOG_EDIT",
+        "VACCINATION_VIEW",
+        "VACCINATION_EDIT"
+      ]
+    },
+    {
+      "id": "u-golden-crop",
+      "name": "Kunle Afod",
+      "role": "CROP_MANAGER",
+      "scopes": { "farms": ["golden-farm"], "stores": [] },
+      "permissions": [
+        "OVERVIEW_VIEW",
+        "CROPS_VIEW",
+        "CROPS_EDIT",
+        "INVENTORY_VIEW",
+        "TRANSFERS_VIEW",
+        "BIOSECURITY_VIEW",
+        "VISITOR_LOG_VIEW"
+      ]
+    },
+    {
+      "id": "u-ogunpa-manager",
+      "name": "Oriyomi Akanji",
+      "role": "STORE_MANAGER",
+      "scopes": { "farms": [], "stores": ["store-ogunpa"] },
+      "permissions": [
+        "OVERVIEW_VIEW",
+        "POS_VIEW",
+        "POS_SELL",
+        "POS_REFUND",
+        "INVENTORY_VIEW",
+        "INVENTORY_EDIT",
+        "TRANSFERS_VIEW",
+        "TRANSFERS_RECEIVE",
+        "FINANCE_VIEW",
+        "BIOSECURITY_VIEW",
+        "VISITOR_LOG_VIEW"
+      ]
+    },
+    {
+      "id": "u-ogunpa-cashier",
+      "name": "Tolu Balogun",
+      "role": "CASHIER",
+      "scopes": { "farms": [], "stores": ["store-ogunpa"] },
+      "permissions": ["OVERVIEW_VIEW", "POS_VIEW", "POS_SELL"]
+    },
+    {
+      "id": "u-driver-01",
+      "name": "Nimtim Dopsal",
+      "role": "DRIVER",
+      "scopes": {
+        "farms": ["prime-estate"],
+        "stores": [
+          "store-ogunpa",
+          "store-dugbe",
+          "store-alesh",
+          "store-agbeni",
+          "store-oluyole"
+        ]
+      },
+      "permissions": ["TRANSFERS_VIEW"]
+    }
+  ],
+
+  "catalog": {
+    "skus": [
+      {
+        "sku": "EGG-CRATE-30",
+        "name": "Eggs (crate of 30)",
+        "category": "Eggs",
+        "uom": "crate",
+        "price": 1500
+      },
+      {
+        "sku": "BRL-WHOLE-1",
+        "name": "Broiler (whole)",
+        "category": "Meat",
+        "uom": "bird",
+        "price": 10000
+      },
+      {
+        "sku": "PEP-KG",
+        "name": "Pepper",
+        "category": "Vegetables",
+        "uom": "kg",
+        "price": 1200
+      },
+      {
+        "sku": "PLT-BUNCH",
+        "name": "Plantain",
+        "category": "Fruits",
+        "uom": "bunch",
+        "price": 4000
+      },
+      {
+        "sku": "YAM-TUBER",
+        "name": "Yam (tuber)",
+        "category": "Tubers",
+        "uom": "tuber",
+        "price": 2500
+      },
+
+      {
+        "sku": "FEED-LAYER-MASH-25KG",
+        "name": "Layer Mash 25kg",
+        "category": "Feed",
+        "uom": "bag",
+        "price": 0
+      },
+      {
+        "sku": "FEED-BROILER-FIN-25KG",
+        "name": "Broiler Finisher 25kg",
+        "category": "Feed",
+        "uom": "bag",
+        "price": 0
+      },
+      {
+        "sku": "VAX-NDIB",
+        "name": "ND/IB Vaccine (dose)",
+        "category": "Vaccines",
+        "uom": "dose",
+        "price": 0
+      },
+      {
+        "sku": "EGG-TRAY",
+        "name": "Egg Tray",
+        "category": "Packaging",
+        "uom": "pcs",
+        "price": 0
+      },
+      {
+        "sku": "DIESEL-L",
+        "name": "Diesel",
+        "category": "Energy",
+        "uom": "litre",
+        "price": 0
+      }
+    ]
+  },
+
+  "seed": {
+    "farms": {
+      "prime-estate": {
+        "kpis": {
+          "lastSyncAt": "2026-01-10T12:20:00.000Z",
+          "layers": 20050,
+          "broilers": 10120,
+          "eggToday": 15790,
+          "layRate": 78,
+          "mortality7d": 0.28,
+          "feedTonsWeek": 29,
+          "waterM3Day": 6,
+          "finance": {
+            "revenueMTD": 42000000,
+            "cogsMTD": 26500000,
+            "opexMTD": 7800000,
+            "grossMargin": 37
+          }
+        },
+
+        "overview": {
+          "houses": [
+            {
+              "houseNo": 1,
+              "name": "House 1",
+              "flockAgeWeeks": 35,
+              "feedPerEgg": 0.166,
+              "mort7d": 0.22,
+              "eggSizeG": 61.8
+            },
+            {
+              "houseNo": 2,
+              "name": "House 2",
+              "flockAgeWeeks": 38,
+              "feedPerEgg": 0.171,
+              "mort7d": 0.31,
+              "eggSizeG": 60.9
+            },
+            {
+              "houseNo": 3,
+              "name": "House 3",
+              "flockAgeWeeks": 41,
+              "feedPerEgg": 0.173,
+              "mort7d": 0.28,
+              "eggSizeG": 61.2
+            },
+            {
+              "houseNo": 4,
+              "name": "House 4",
+              "flockAgeWeeks": 44,
+              "feedPerEgg": 0.168,
+              "mort7d": 0.26,
+              "eggSizeG": 62.0
+            }
+          ],
+          "crops": [
+            {
+              "block": "A1",
+              "crop": "Yam",
+              "stage": "Vegetative",
+              "daysInStage": 74,
+              "expectedHarvestAt": "2026-05-10T00:00:00.000Z"
+            },
+            {
+              "block": "A2",
+              "crop": "Maize (intercrop)",
+              "stage": "Tasseling",
+              "daysInStage": 48,
+              "expectedHarvestAt": "2026-02-04T00:00:00.000Z"
+            },
+            {
+              "block": "B1",
+              "crop": "Plantain",
+              "stage": "Flowering",
+              "daysInStage": 140,
+              "expectedHarvestAt": "2026-02-19T00:00:00.000Z"
+            },
+            {
+              "block": "B2",
+              "crop": "Pepper",
+              "stage": "Harvesting",
+              "daysInStage": 65,
+              "expectedHarvestAt": null
+            },
+            {
+              "block": "C1",
+              "crop": "Oil Palm",
+              "stage": "Maintenance",
+              "daysInStage": 540,
+              "expectedHarvestAt": "2026-03-30T00:00:00.000Z"
+            },
+            {
+              "block": "C2",
+              "crop": "Tomato (intercrop)",
+              "stage": "Fruit set",
+              "daysInStage": 52,
+              "expectedHarvestAt": "2026-01-28T00:00:00.000Z"
+            }
+          ],
+          "transfers": [
+            {
+              "transferNo": "TRF-PRI-104",
+              "fromFarmId": "prime-estate",
+              "toStoreId": "store-abeokuta",
+              "createdAt": "2026-01-10T07:10:00.000Z",
+              "ageHrs": 5,
+              "slaHours": 18,
+              "status": "ontime",
+              "vehicleId": "veh-01",
+              "driverId": "u-driver-01",
+              "lines": [
+                {
+                  "sku": "EGG-CRATE-30",
+                  "name": "Eggs (crate)",
+                  "uom": "crates",
+                  "qty": 80
+                },
+                {
+                  "sku": "BRL-WHOLE-1",
+                  "name": "Broiler (whole)",
+                  "uom": "birds",
+                  "qty": 26
+                }
+              ]
+            },
+            {
+              "transferNo": "TRF-PRI-105",
+              "fromFarmId": "prime-estate",
+              "toStoreId": "store-odeda",
+              "createdAt": "2026-01-10T02:10:00.000Z",
+              "ageHrs": 10,
+              "slaHours": 18,
+              "status": "risk",
+              "vehicleId": "veh-02",
+              "driverId": "u-driver-01",
+              "lines": [
+                {
+                  "sku": "EGG-CRATE-30",
+                  "name": "Eggs (crate)",
+                  "uom": "crates",
+                  "qty": 60
+                },
+                { "sku": "PEP-KG", "name": "Pepper", "uom": "kg", "qty": 90 },
+                {
+                  "sku": "PLT-BUNCH",
+                  "name": "Plantain",
+                  "uom": "bunches",
+                  "qty": 18
+                }
+              ]
+            }
+          ],
+          "compliance": {
+            "biosecurityCompletion": 92,
+            "visitorLog": [
+              {
+                "time": "08:25",
+                "name": "Feed supplier",
+                "purpose": "Delivery",
+                "status": "Checked-in"
+              },
+              {
+                "time": "11:10",
+                "name": "Veterinary officer",
+                "purpose": "Routine check",
+                "status": "Cleared"
+              }
+            ],
+            "vaccinationsDue": [
+              {
+                "unit": "Layers House 2",
+                "item": "ND/IB booster",
+                "dueInDays": 2
+              },
+              { "unit": "Brooder Unit", "item": "Gumboro", "dueInDays": 5 }
+            ]
+          }
+        },
+
+        "poultry": {
+          "layers": {
+            "flocks": [
+              {
+                "flockId": "L-2025-08-H1",
+                "houseNo": 1,
+                "breed": "ISA Brown",
+                "placementDate": "2025-08-05",
+                "ageWeeks": 35,
+                "birdsPlaced": 5200,
+                "birdsAlive": 5125,
+                "layRate": 79,
+                "avgEggG": 61.8,
+                "feedKgToday": 585,
+                "mortality7d": 0.22
+              },
+              {
+                "flockId": "L-2025-07-H2",
+                "houseNo": 2,
+                "breed": "ISA Brown",
+                "placementDate": "2025-07-15",
+                "ageWeeks": 38,
+                "birdsPlaced": 5200,
+                "birdsAlive": 5108,
+                "layRate": 77,
+                "avgEggG": 60.9,
+                "feedKgToday": 592,
+                "mortality7d": 0.31
+              },
+              {
+                "flockId": "L-2025-06-H3",
+                "houseNo": 3,
+                "breed": "ISA Brown",
+                "placementDate": "2025-06-24",
+                "ageWeeks": 41,
+                "birdsPlaced": 5200,
+                "birdsAlive": 5152,
+                "layRate": 78,
+                "avgEggG": 61.2,
+                "feedKgToday": 600,
+                "mortality7d": 0.28
+              },
+              {
+                "flockId": "L-2025-06-H4",
+                "houseNo": 4,
+                "breed": "ISA Brown",
+                "placementDate": "2025-06-03",
+                "ageWeeks": 44,
+                "birdsPlaced": 5200,
+                "birdsAlive": 5165,
+                "layRate": 78,
+                "avgEggG": 62.0,
+                "feedKgToday": 605,
+                "mortality7d": 0.26
+              }
+            ],
+            "dailyEggs": [
+              {
+                "date": "2026-01-09",
+                "houseNo": 1,
+                "eggsCollected": 4100,
+                "cracked": 29,
+                "dirty": 16
+              },
+              {
+                "date": "2026-01-10",
+                "houseNo": 1,
+                "eggsCollected": 4200,
+                "cracked": 32,
+                "dirty": 18
+              },
+              {
+                "date": "2026-01-10",
+                "houseNo": 2,
+                "eggsCollected": 3950,
+                "cracked": 38,
+                "dirty": 22
+              },
+              {
+                "date": "2026-01-10",
+                "houseNo": 3,
+                "eggsCollected": 4050,
+                "cracked": 31,
+                "dirty": 14
+              },
+              {
+                "date": "2026-01-10",
+                "houseNo": 4,
+                "eggsCollected": 3590,
+                "cracked": 27,
+                "dirty": 13
+              }
+            ],
+            "mortalityLog": [
+              {
+                "date": "2026-01-10",
+                "houseNo": 2,
+                "dead": 6,
+                "culled": 2,
+                "reason": "heat stress"
+              },
+              {
+                "date": "2026-01-10",
+                "houseNo": 1,
+                "dead": 3,
+                "culled": 1,
+                "reason": "unknown"
+              }
+            ],
+            "eggGrading": [
+              { "date": "2026-01-10", "grade": "Large", "qty": 8200 },
+              { "date": "2026-01-10", "grade": "Medium", "qty": 6500 },
+              { "date": "2026-01-10", "grade": "Small", "qty": 1090 }
+            ]
+          },
+
+          "broilers": {
+            "batches": [
+              {
+                "batchId": "B-2025-12-01",
+                "placementDate": "2025-12-12",
+                "ageDays": 29,
+                "birdsPlaced": 5200,
+                "birdsAlive": 5088,
+                "avgWeightKg": 1.55,
+                "fcr": 1.78,
+                "mortality7d": 0.35
+              },
+              {
+                "batchId": "B-2025-11-02",
+                "placementDate": "2025-11-20",
+                "ageDays": 51,
+                "birdsPlaced": 5200,
+                "birdsAlive": 5032,
+                "avgWeightKg": 2.25,
+                "fcr": 1.92,
+                "mortality7d": 0.42
+              }
+            ],
+            "dispatches": [
+              {
+                "date": "2026-01-10",
+                "batchId": "B-2025-11-02",
+                "qty": 260,
+                "avgWeightKg": 2.35,
+                "to": "Processing / Stores"
+              }
+            ]
+          },
+
+          "breeders": {
+            "flocks": [
+              {
+                "flockId": "BR-2025-05",
+                "breed": "Ross 308 Parent Stock",
+                "ageWeeks": 38,
+                "hens": 1800,
+                "cocks": 180,
+                "fertilityPct": 86,
+                "hatchabilityPct": 80
+              }
+            ],
+            "eggCollection": [
+              {
+                "date": "2026-01-10",
+                "flockId": "BR-2025-05",
+                "eggsSettable": 1260,
+                "rejects": 54
+              }
+            ]
+          },
+
+          "hatchery": {
+            "incubations": [
+              {
+                "setId": "SET-2026-01-03",
+                "setAt": "2026-01-03T10:00:00.000Z",
+                "eggsSet": 12000,
+                "expectedHatchAt": "2026-01-24T10:00:00.000Z",
+                "status": "incubating"
+              },
+              {
+                "setId": "SET-2025-12-12",
+                "setAt": "2025-12-12T10:00:00.000Z",
+                "eggsSet": 9800,
+                "expectedHatchAt": "2026-01-02T10:00:00.000Z",
+                "status": "hatched",
+                "chicksOut": 7700
+              }
+            ],
+            "hatches": [
+              {
+                "hatchId": "HATCH-2026-01-02",
+                "setId": "SET-2025-12-12",
+                "hatchedAt": "2026-01-02T10:00:00.000Z",
+                "chicksOut": 7700,
+                "culls": 210,
+                "notes": "Temperature variance corrected day 12."
+              }
+            ]
+          }
+        },
+
+        "crops": {
+          "blocks": [
+            {
+              "blockId": "A1",
+              "crop": "Yam",
+              "variety": "Local white",
+              "areaAcres": 12.5,
+              "cycleId": "YAM-2025-11-A1",
+              "stage": "Vegetative",
+              "plantedAt": "2025-11-05",
+              "expectedHarvestAt": "2026-05-10",
+              "irrigationZone": "Zone-A",
+              "notes": "Intercropped with maize and soybean"
+            },
+            {
+              "blockId": "B1",
+              "crop": "Plantain",
+              "variety": "Agbagba",
+              "areaAcres": 8.0,
+              "cycleId": "PLT-2025-07-B1",
+              "stage": "Flowering",
+              "plantedAt": "2025-07-24",
+              "expectedHarvestAt": "2026-02-19",
+              "irrigationZone": "Zone-B",
+              "notes": "Pepper intercrop under canopy"
+            },
+            {
+              "blockId": "C1",
+              "crop": "Oil Palm",
+              "variety": "Tenera",
+              "areaAcres": 10.0,
+              "cycleId": "OP-2024-C1",
+              "stage": "Maintenance",
+              "plantedAt": "2024-06-01",
+              "expectedHarvestAt": "2026-03-30",
+              "irrigationZone": "Zone-C",
+              "notes": "Tomato intercrop in alleys"
+            }
+          ],
+          "fieldOps": [
+            {
+              "date": "2026-01-09",
+              "blockId": "A1",
+              "activity": "Weeding",
+              "laborCount": 8,
+              "cost": 24000
+            },
+            {
+              "date": "2026-01-10",
+              "blockId": "B1",
+              "activity": "Fertigation",
+              "laborCount": 4,
+              "cost": 18000
+            }
+          ],
+          "harvests": [
+            {
+              "date": "2026-01-10",
+              "blockId": "B2",
+              "product": "Pepper",
+              "qtyKg": 160,
+              "gradedA": 120,
+              "gradedB": 40,
+              "destination": "Transfers"
+            }
+          ]
+        },
+
+        "inventory": {
+          "items": [
+            {
+              "sku": "FEED-LAYER-MASH-25KG",
+              "name": "Layer Mash 25kg",
+              "uom": "bag",
+              "onHand": 1240,
+              "reorderPoint": 400,
+              "avgDailyUse": 180,
+              "location": "Farm Store - Feed Bay"
+            },
+            {
+              "sku": "FEED-BROILER-FIN-25KG",
+              "name": "Broiler Finisher 25kg",
+              "uom": "bag",
+              "onHand": 310,
+              "reorderPoint": 250,
+              "avgDailyUse": 70,
+              "location": "Farm Store - Feed Bay"
+            },
+            {
+              "sku": "EGG-TRAY",
+              "name": "Egg Tray",
+              "uom": "pcs",
+              "onHand": 920,
+              "reorderPoint": 1200,
+              "avgDailyUse": 180,
+              "location": "Egg Room"
+            },
+            {
+              "sku": "VAX-NDIB",
+              "name": "ND/IB Vaccine (dose)",
+              "uom": "dose",
+              "onHand": 1400,
+              "reorderPoint": 600,
+              "avgDailyUse": 90,
+              "location": "Vet Store"
+            },
+            {
+              "sku": "DIESEL-L",
+              "name": "Diesel",
+              "uom": "litre",
+              "onHand": 1480,
+              "reorderPoint": 900,
+              "avgDailyUse": 120,
+              "location": "Fuel Depot"
+            }
+          ],
+          "receipts": [
+            {
+              "grnNo": "GRN-1042",
+              "date": "2026-01-10",
+              "supplier": "Greenland Feed Mill",
+              "lines": [
+                { "sku": "FEED-LAYER-MASH-25KG", "qty": 300 },
+                { "sku": "FEED-BROILER-FIN-25KG", "qty": 120 }
+              ]
+            }
+          ],
+          "issues": [
+            {
+              "issueNo": "ISS-2201",
+              "date": "2026-01-10",
+              "to": "Layers House 1–4",
+              "lines": [{ "sku": "FEED-LAYER-MASH-25KG", "qty": 180 }]
+            }
+          ]
+        },
+
+        "finance": {
+          "expenses": [
+            {
+              "expenseId": "EXP-901",
+              "date": "2026-01-10",
+              "category": "Diesel",
+              "amount": 150000,
+              "notes": "Generator refill",
+              "status": "approved",
+              "approvedBy": "u-prime-admin"
+            },
+            {
+              "expenseId": "EXP-902",
+              "date": "2026-01-09",
+              "category": "Labor",
+              "amount": 80000,
+              "notes": "Field weeding labor",
+              "status": "approved",
+              "approvedBy": "u-prime-admin"
+            }
+          ]
+        }
+      },
+
+      "golden-farm": {
+        "kpis": {
+          "lastSyncAt": "2026-01-13T08:12:00.000Z",
+          "layers": 4800,
+          "broilers": 0,
+          "eggToday": 4200,
+          "layRate": 88,
+          "mortality7d": 0.28,
+          "feedTonsWeek": 6,
+          "waterM3Day": 3,
+          "finance": {
+            "revenueMTD": 18250000,
+            "cogsMTD": 11820000,
+            "opexMTD": 2450000,
+            "grossMargin": 35
+          }
+        },
+        "overview": {
+          "houses": [
+            {
+              "name": "House 1",
+              "flockAgeWeeks": 34,
+              "feedPerEgg": 0.169,
+              "mort7d": 0.24,
+              "eggSizeG": 60.8
+            },
+            {
+              "name": "House 2",
+              "flockAgeWeeks": 36,
+              "feedPerEgg": 0.171,
+              "mort7d": 0.3,
+              "eggSizeG": 60.3
+            },
+            {
+              "name": "House 3",
+              "flockAgeWeeks": 28,
+              "feedPerEgg": 0.166,
+              "mort7d": 0.18,
+              "eggSizeG": 61.4
+            },
+            {
+              "name": "House 4",
+              "flockAgeWeeks": 24,
+              "feedPerEgg": 0.172,
+              "mort7d": 0.32,
+              "eggSizeG": 59.9
+            }
+          ],
+          "crops": [
+            {
+              "block": "B1",
+              "crop": "Yam",
+              "stage": "Vegetative",
+              "daysInStage": 38,
+              "expectedHarvestAt": "2026-05-28T00:00:00.000Z"
+            },
+            {
+              "block": "B2",
+              "crop": "Plantain",
+              "stage": "Flowering",
+              "daysInStage": 17,
+              "expectedHarvestAt": "2026-03-10T00:00:00.000Z"
+            },
+            {
+              "block": "B3",
+              "crop": "Oil Palm",
+              "stage": "Maintenance",
+              "daysInStage": 120,
+              "expectedHarvestAt": "2026-02-02T00:00:00.000Z"
+            }
+          ],
+          "transfers": [
+            {
+              "transferNo": "TRF-GF-00192",
+              "toStoreId": "store-ibadan-01",
+              "ageHrs": 10,
+              "slaHours": 18,
+              "status": "ontime",
+              "lines": [
+                { "name": "Egg Crate (30)", "qty": 260, "uom": "crates" },
+                { "name": "Spent Layer", "qty": 14, "uom": "birds" }
+              ]
+            }
+          ],
+          "compliance": {
+            "biosecurityCompletion": 86,
+            "visitorLog": [
+              {
+                "time": "09:10",
+                "name": "Diesel Vendor",
+                "purpose": "Diesel delivery",
+                "status": "Cleared"
+              }
+            ],
+            "vaccinationsDue": [
+              {
+                "unit": "Layers – House 2",
+                "item": "ND Booster",
+                "dueInDays": 3
+              }
+            ]
+          }
+        },
+        "poultry": {
+          "layers": {
+            "flocks": [
+              {
+                "flockId": "GF-L-2409",
+                "house": "House 1",
+                "breed": "ISA Brown",
+                "count": 1200,
+                "ageWeeks": 34,
+                "status": "Laying"
+              },
+              {
+                "flockId": "GF-L-2410",
+                "house": "House 2",
+                "breed": "ISA Brown",
+                "count": 1200,
+                "ageWeeks": 36,
+                "status": "Peak"
+              },
+              {
+                "flockId": "GF-L-2411",
+                "house": "House 3",
+                "breed": "ISA Brown",
+                "count": 1200,
+                "ageWeeks": 28,
+                "status": "Rising"
+              },
+              {
+                "flockId": "GF-L-2412",
+                "house": "House 4",
+                "breed": "ISA Brown",
+                "count": 1200,
+                "ageWeeks": 24,
+                "status": "Start"
+              }
+            ],
+            "dailyEggs": [
+              { "date": "2026-01-11", "eggs": 4100, "cracked": 46 },
+              { "date": "2026-01-12", "eggs": 4180, "cracked": 52 },
+              { "date": "2026-01-13", "eggs": 4200, "cracked": 49 }
+            ],
+            "mortalityLog": [
+              {
+                "date": "2026-01-12",
+                "house": "House 2",
+                "count": 3,
+                "cause": "Heat stress suspected"
+              }
+            ],
+            "eggGrading": [
+              {
+                "date": "2026-01-13",
+                "small": 220,
+                "medium": 2080,
+                "large": 1720,
+                "xl": 180
+              }
+            ]
+          }
+        },
+        "crops": {
+          "blocks": [
+            {
+              "block": "B1",
+              "crop": "Yam",
+              "stage": "Vegetative",
+              "areaAcres": 6.5
+            },
+            {
+              "block": "B2",
+              "crop": "Plantain",
+              "stage": "Flowering",
+              "areaAcres": 4.0
+            },
+            {
+              "block": "B3",
+              "crop": "Oil Palm",
+              "stage": "Maintenance",
+              "areaAcres": 3.0
+            }
+          ],
+          "fieldOps": [
+            {
+              "date": "2026-01-10",
+              "block": "B1",
+              "activity": "Weeding",
+              "notes": "Manual + spot herbicide"
+            }
+          ],
+          "harvests": []
+        },
+        "inventory": {
+          "items": [
+            {
+              "sku": "FEED-LAY-25",
+              "name": "Layers Mash 25kg",
+              "uom": "bag",
+              "onHand": 180
+            },
+            {
+              "sku": "MED-VITC",
+              "name": "Vitamin C",
+              "uom": "bottle",
+              "onHand": 22
+            }
+          ],
+          "receipts": [
+            {
+              "date": "2026-01-12",
+              "sku": "FEED-LAY-25",
+              "qty": 120,
+              "source": "Supplier – Ibadan"
+            }
+          ],
+          "issues": [
+            {
+              "date": "2026-01-13",
+              "sku": "FEED-LAY-25",
+              "qty": 40,
+              "to": "House 1–4"
+            }
+          ]
+        },
+        "finance": {
+          "expenses": [
+            {
+              "date": "2026-01-12",
+              "category": "Diesel",
+              "amount": 320000,
+              "notes": "Generator run 2 days"
+            },
+            {
+              "date": "2026-01-11",
+              "category": "Vet/Med",
+              "amount": 85000,
+              "notes": "ND booster supplies"
+            }
+          ]
+        }
+      },
+
+      "atlas-farm": {
+        "kpis": {
+          "lastSyncAt": "2026-01-13T08:20:00.000Z",
+          "layers": 2600,
+          "broilers": 0,
+          "eggToday": 2300,
+          "layRate": 85,
+          "mortality7d": 0.34,
+          "feedTonsWeek": 3,
+          "waterM3Day": 2,
+          "finance": {
+            "revenueMTD": 10450000,
+            "cogsMTD": 7150000,
+            "opexMTD": 1600000,
+            "grossMargin": 32
+          }
+        },
+        "overview": {
+          "houses": [
+            {
+              "name": "House 1",
+              "flockAgeWeeks": 31,
+              "feedPerEgg": 0.171,
+              "mort7d": 0.31,
+              "eggSizeG": 60.2
+            },
+            {
+              "name": "House 2",
+              "flockAgeWeeks": 22,
+              "feedPerEgg": 0.173,
+              "mort7d": 0.37,
+              "eggSizeG": 59.6
+            }
+          ],
+          "crops": [
+            {
+              "block": "A1",
+              "crop": "Plantain",
+              "stage": "Vegetative",
+              "daysInStage": 26,
+              "expectedHarvestAt": "2026-03-22T00:00:00.000Z"
+            },
+            {
+              "block": "A2",
+              "crop": "Yam",
+              "stage": "Vegetative",
+              "daysInStage": 44,
+              "expectedHarvestAt": "2026-06-04T00:00:00.000Z"
+            }
+          ],
+          "transfers": [
+            {
+              "transferNo": "TRF-AF-00088",
+              "toStoreId": "store-abeokuta-01",
+              "ageHrs": 15,
+              "slaHours": 18,
+              "status": "risk",
+              "lines": [
+                { "name": "Egg Crate (30)", "qty": 140, "uom": "crates" }
+              ]
+            }
+          ],
+          "compliance": {
+            "biosecurityCompletion": 79,
+            "visitorLog": [
+              {
+                "time": "08:40",
+                "name": "Maintenance Tech",
+                "purpose": "Water line repair",
+                "status": "Cleared"
+              }
+            ],
+            "vaccinationsDue": [
+              {
+                "unit": "Layers – House 1",
+                "item": "IBD Booster",
+                "dueInDays": 2
+              }
+            ]
+          }
+        },
+        "poultry": {
+          "layers": {
+            "flocks": [
+              {
+                "flockId": "AF-L-2419",
+                "house": "House 1",
+                "breed": "ISA Brown",
+                "count": 1400,
+                "ageWeeks": 31,
+                "status": "Rising"
+              },
+              {
+                "flockId": "AF-L-2420",
+                "house": "House 2",
+                "breed": "ISA Brown",
+                "count": 1200,
+                "ageWeeks": 22,
+                "status": "Start"
+              }
+            ],
+            "dailyEggs": [
+              { "date": "2026-01-11", "eggs": 2210, "cracked": 29 },
+              { "date": "2026-01-12", "eggs": 2280, "cracked": 31 },
+              { "date": "2026-01-13", "eggs": 2300, "cracked": 28 }
+            ],
+            "mortalityLog": [
+              {
+                "date": "2026-01-12",
+                "house": "House 2",
+                "count": 4,
+                "cause": "Pecking/management"
+              }
+            ],
+            "eggGrading": [
+              {
+                "date": "2026-01-13",
+                "small": 170,
+                "medium": 1220,
+                "large": 850,
+                "xl": 60
+              }
+            ]
+          }
+        },
+        "crops": {
+          "blocks": [
+            {
+              "block": "A1",
+              "crop": "Plantain",
+              "stage": "Vegetative",
+              "areaAcres": 3.0
+            },
+            {
+              "block": "A2",
+              "crop": "Yam",
+              "stage": "Vegetative",
+              "areaAcres": 4.5
+            }
+          ],
+          "fieldOps": [
+            {
+              "date": "2026-01-09",
+              "block": "A2",
+              "activity": "Mounding",
+              "notes": "Labor crew 8"
+            }
+          ],
+          "harvests": []
+        },
+        "inventory": {
+          "items": [
+            {
+              "sku": "FEED-LAY-25",
+              "name": "Layers Mash 25kg",
+              "uom": "bag",
+              "onHand": 95
+            },
+            {
+              "sku": "MED-ANTB-01",
+              "name": "Broad-spectrum antibiotic",
+              "uom": "bottle",
+              "onHand": 6
+            }
+          ],
+          "receipts": [
+            {
+              "date": "2026-01-12",
+              "sku": "FEED-LAY-25",
+              "qty": 80,
+              "source": "Supplier – Abeokuta"
+            }
+          ],
+          "issues": [
+            {
+              "date": "2026-01-13",
+              "sku": "FEED-LAY-25",
+              "qty": 26,
+              "to": "House 1–2"
+            }
+          ]
+        },
+        "finance": {
+          "expenses": [
+            {
+              "date": "2026-01-12",
+              "category": "Diesel",
+              "amount": 210000,
+              "notes": "Generator run"
+            },
+            {
+              "date": "2026-01-10",
+              "category": "Repairs",
+              "amount": 65000,
+              "notes": "Water line fittings"
+            }
+          ]
+        }
+      }
+    },
+
+    "stores": {
+      "store-ojoo": {
+        "kpis": {
+          "lastSyncAt": "2026-01-10T12:25:00.000Z",
+          "salesToday": 182000,
+          "transactions": 44,
+          "avgBasket": 4136,
+          "cashOnHand": 265000,
+          "returnsToday": 2,
+          "lowStockSkus": 9,
+          "transfersInTransit": 2
+        },
+        "overview": {
+          "topSellers": [
+            {
+              "sku": "EGG-CRATE-30",
+              "name": "Eggs (crate)",
+              "qty": 36,
+              "sales": 54000
+            },
+            {
+              "sku": "BRL-WHOLE-1",
+              "name": "Broiler (whole)",
+              "qty": 8,
+              "sales": 80000
+            },
+            { "sku": "PEP-KG", "name": "Pepper", "qty": 18, "sales": 21600 }
+          ],
+          "watchlist": [
+            {
+              "type": "warn",
+              "text": "Low stock items high — prioritize egg trays & packaging."
+            },
+            {
+              "type": "info",
+              "text": "2 inbound transfers awaiting arrival confirmation."
+            }
+          ],
+          "shift": {
+            "cashier": "Present",
+            "storekeeper": "Present",
+            "manager": "On-call"
+          }
+        },
+        "inventory": {
+          "items": [
+            {
+              "sku": "EGG-CRATE-30",
+              "name": "Eggs (crate)",
+              "uom": "crate",
+              "onHand": 44,
+              "reorderPoint": 60,
+              "avgDailySales": 35
+            },
+            {
+              "sku": "BRL-WHOLE-1",
+              "name": "Broiler (whole)",
+              "uom": "bird",
+              "onHand": 18,
+              "reorderPoint": 20,
+              "avgDailySales": 10
+            },
+            {
+              "sku": "PEP-KG",
+              "name": "Pepper",
+              "uom": "kg",
+              "onHand": 42,
+              "reorderPoint": 30,
+              "avgDailySales": 18
+            },
+            {
+              "sku": "PLT-BUNCH",
+              "name": "Plantain",
+              "uom": "bunch",
+              "onHand": 11,
+              "reorderPoint": 12,
+              "avgDailySales": 7
+            }
+          ],
+          "receipts": [],
+          "adjustments": [
+            {
+              "adjId": "ADJ-OD-01",
+              "date": "2026-01-10",
+              "sku": "EGG-CRATE-30",
+              "qtyChange": -1,
+              "reason": "breakage"
+            }
+          ]
+        },
+        "pos": {
+          "shift": {
+            "shiftId": "SHIFT-OD-2026-01-10-AM",
+            "openedAt": "2026-01-10T08:05:00.000Z",
+            "openedBy": "u-odeda-cashier",
+            "float": 50000
+          },
+          "transactions": [
+            {
+              "txnId": "TXN-OD-10492",
+              "time": "2026-01-10T10:14:00.000Z",
+              "cashierId": "u-odeda-cashier",
+              "lines": [
+                { "sku": "EGG-CRATE-30", "qty": 1, "price": 1500 },
+                { "sku": "PEP-KG", "qty": 2, "price": 1200 }
+              ],
+              "total": 3900,
+              "payment": { "method": "cash", "amount": 3900 }
+            },
+            {
+              "txnId": "TXN-OD-10493",
+              "time": "2026-01-10T11:02:00.000Z",
+              "cashierId": "u-odeda-cashier",
+              "lines": [{ "sku": "BRL-WHOLE-1", "qty": 1, "price": 10000 }],
+              "total": 10000,
+              "payment": { "method": "transfer", "amount": 10000 }
+            }
+          ],
+          "returns": [
+            {
+              "returnId": "RET-OD-301",
+              "txnId": "TXN-OD-10492",
+              "reason": "damaged egg crate",
+              "approvedBy": "u-odeda-manager",
+              "amount": 500
+            }
+          ],
+          "cashbook": [
+            {
+              "time": "2026-01-10T08:05:00.000Z",
+              "type": "float_in",
+              "amount": 50000,
+              "note": "Opening float"
+            },
+            {
+              "time": "2026-01-10T12:00:00.000Z",
+              "type": "cash_sale",
+              "amount": 3900,
+              "note": "TXN-OD-10492"
+            }
+          ]
+        },
+        "transfersIn": [
+          {
+            "transferNo": "TRF-PRI-105",
+            "fromFarmId": "prime-estate",
+            "status": "in_transit",
+            "eta": "2026-01-10T14:30:00.000Z"
+          },
+          {
+            "transferNo": "TRF-ATL-301",
+            "fromFarmId": "atlas-farm",
+            "status": "in_transit",
+            "eta": "2026-01-10T13:45:00.000Z"
+          }
+        ]
+      },
+
+      "store-Ogunpa": {
+        "kpis": {
+          "lastSyncAt": "2026-01-10T12:25:00.000Z",
+          "salesToday": 256000,
+          "transactions": 58,
+          "avgBasket": 4413,
+          "cashOnHand": 310000,
+          "returnsToday": 1,
+          "lowStockSkus": 6,
+          "transfersInTransit": 2
+        },
+        "overview": {
+          "topSellers": [
+            {
+              "sku": "EGG-CRATE-30",
+              "name": "Eggs (crate)",
+              "qty": 42,
+              "sales": 63000
+            },
+            {
+              "sku": "BRL-WHOLE-1",
+              "name": "Broiler (whole)",
+              "qty": 11,
+              "sales": 110000
+            }
+          ],
+          "watchlist": [
+            {
+              "type": "info",
+              "text": "Inbound egg transfer scheduled before 3pm."
+            }
+          ],
+          "shift": {
+            "cashier": "Present",
+            "storekeeper": "Present",
+            "manager": "Present"
+          }
+        },
+        "inventory": {
+          "items": [
+            {
+              "sku": "EGG-CRATE-30",
+              "name": "Eggs (crate)",
+              "uom": "crate",
+              "onHand": 52,
+              "reorderPoint": 70,
+              "avgDailySales": 40
+            },
+            {
+              "sku": "BRL-WHOLE-1",
+              "name": "Broiler (whole)",
+              "uom": "bird",
+              "onHand": 22,
+              "reorderPoint": 24,
+              "avgDailySales": 12
+            }
+          ],
+          "receipts": [],
+          "adjustments": []
+        },
+        "pos": {
+          "shift": {
+            "shiftId": "SHIFT-AB-2026-01-10-AM",
+            "openedAt": "2026-01-10T08:10:00.000Z",
+            "openedBy": "u-odeda-manager",
+            "float": 70000
+          },
+          "transactions": [
+            {
+              "txnId": "TXN-AB-8801",
+              "time": "2026-01-10T10:40:00.000Z",
+              "cashierId": "u-odeda-manager",
+              "lines": [{ "sku": "EGG-CRATE-30", "qty": 2, "price": 1500 }],
+              "total": 3000,
+              "payment": { "method": "cash", "amount": 3000 }
+            }
+          ],
+          "returns": [],
+          "cashbook": []
+        },
+        "transfersIn": [
+          {
+            "transferNo": "TRF-PRI-104",
+            "fromFarmId": "prime-estate",
+            "status": "in_transit",
+            "eta": "2026-01-10T13:15:00.000Z"
+          },
+          {
+            "transferNo": "TRF-GOL-201",
+            "fromFarmId": "golden-farm",
+            "status": "in_transit",
+            "eta": "2026-01-10T15:30:00.000Z"
+          }
+        ]
+      },
+
+      "store-oluyole": {
+        "kpis": {
+          "lastSyncAt": "2026-01-10T12:25:00.000Z",
+          "salesToday": 412000,
+          "transactions": 76,
+          "avgBasket": 5421,
+          "cashOnHand": 420000,
+          "returnsToday": 3,
+          "lowStockSkus": 11,
+          "transfersInTransit": 0
+        },
+        "overview": {
+          "topSellers": [
+            {
+              "sku": "BRL-WHOLE-1",
+              "name": "Broiler (whole)",
+              "qty": 16,
+              "sales": 160000
+            },
+            {
+              "sku": "EGG-CRATE-30",
+              "name": "Eggs (crate)",
+              "qty": 55,
+              "sales": 82500
+            },
+            { "sku": "PEP-KG", "name": "Pepper", "qty": 30, "sales": 36000 }
+          ],
+          "watchlist": [
+            {
+              "type": "warn",
+              "text": "Returns unusually high — audit POS receipts & product quality."
+            },
+            {
+              "type": "warn",
+              "text": "Egg stock running low for weekend demand."
+            }
+          ],
+          "shift": {
+            "cashier": "Present",
+            "storekeeper": "Present",
+            "manager": "Present"
+          }
+        },
+        "inventory": {
+          "items": [
+            {
+              "sku": "EGG-CRATE-30",
+              "name": "Eggs (crate)",
+              "uom": "crate",
+              "onHand": 28,
+              "reorderPoint": 80,
+              "avgDailySales": 55
+            },
+            {
+              "sku": "BRL-WHOLE-1",
+              "name": "Broiler (whole)",
+              "uom": "bird",
+              "onHand": 14,
+              "reorderPoint": 30,
+              "avgDailySales": 18
+            },
+            {
+              "sku": "PEP-KG",
+              "name": "Pepper",
+              "uom": "kg",
+              "onHand": 22,
+              "reorderPoint": 40,
+              "avgDailySales": 28
+            }
+          ],
+          "receipts": [],
+          "adjustments": [
+            {
+              "adjId": "ADJ-LA-01",
+              "date": "2026-01-10",
+              "sku": "BRL-WHOLE-1",
+              "qtyChange": -1,
+              "reason": "cold chain spoilage (investigate)"
+            }
+          ]
+        },
+        "pos": {
+          "shift": {
+            "shiftId": "SHIFT-LA-2026-01-10-AM",
+            "openedAt": "2026-01-10T08:00:00.000Z",
+            "openedBy": "u-super",
+            "float": 100000
+          },
+          "transactions": [
+            {
+              "txnId": "TXN-LA-5001",
+              "time": "2026-01-10T09:45:00.000Z",
+              "cashierId": "u-super",
+              "lines": [{ "sku": "BRL-WHOLE-1", "qty": 2, "price": 10000 }],
+              "total": 20000,
+              "payment": { "method": "pos", "amount": 20000 }
+            }
+          ],
+          "returns": [
+            {
+              "returnId": "RET-LA-901",
+              "txnId": "TXN-LA-5001",
+              "reason": "wrong item",
+              "approvedBy": "u-super",
+              "amount": 10000
+            }
+          ],
+          "cashbook": []
+        },
+        "transfersIn": []
+      }
+    },
+
+    "transfers": {
+      "TRF-PRI-104": {
+        "transferNo": "TRF-PRI-104",
+        "fromFarmId": "prime-estate",
+        "toStoreId": "store-abeokuta",
+        "status": "in_transit",
+        "createdAt": "2026-01-10T07:10:00.000Z",
+        "slaHours": 18,
+        "vehicleId": "veh-01",
+        "driverId": "u-driver-01",
+        "lines": [
+          { "sku": "EGG-CRATE-30", "qty": 80, "uom": "crate" },
+          { "sku": "BRL-WHOLE-1", "qty": 26, "uom": "bird" }
+        ],
+        "actions": [
+          {
+            "time": "2026-01-10T07:12:00.000Z",
+            "by": "u-prime-admin",
+            "type": "created"
+          },
+          {
+            "time": "2026-01-10T08:05:00.000Z",
+            "by": "u-driver-01",
+            "type": "picked_up"
+          }
+        ]
+      },
+      "TRF-PRI-105": {
+        "transferNo": "TRF-PRI-105",
+        "fromFarmId": "prime-estate",
+        "toStoreId": "store-odeda",
+        "status": "in_transit",
+        "createdAt": "2026-01-10T02:10:00.000Z",
+        "slaHours": 18,
+        "vehicleId": "veh-02",
+        "driverId": "u-driver-01",
+        "lines": [
+          { "sku": "EGG-CRATE-30", "qty": 60, "uom": "crate" },
+          { "sku": "PEP-KG", "qty": 90, "uom": "kg" },
+          { "sku": "PLT-BUNCH", "qty": 18, "uom": "bunch" }
+        ],
+        "actions": [
+          {
+            "time": "2026-01-10T02:12:00.000Z",
+            "by": "u-prime-admin",
+            "type": "created"
+          },
+          {
+            "time": "2026-01-10T04:00:00.000Z",
+            "by": "u-driver-01",
+            "type": "picked_up"
+          }
+        ]
+      },
+      "TRF-GOL-201": {
+        "transferNo": "TRF-GOL-201",
+        "fromFarmId": "golden-farm",
+        "toStoreId": "store-abeokuta",
+        "status": "in_transit",
+        "createdAt": "2026-01-10T05:20:00.000Z",
+        "slaHours": 18,
+        "vehicleId": "veh-02",
+        "driverId": "u-driver-01",
+        "lines": [
+          { "sku": "EGG-CRATE-30", "qty": 55, "uom": "crate" },
+          { "sku": "PLT-BUNCH", "qty": 14, "uom": "bunch" }
+        ],
+        "actions": [
+          {
+            "time": "2026-01-10T05:23:00.000Z",
+            "by": "u-golden-crop",
+            "type": "created"
+          }
+        ]
+      },
+      "TRF-ATL-301": {
+        "transferNo": "TRF-ATL-301",
+        "fromFarmId": "atlas-farm",
+        "toStoreId": "store-odeda",
+        "status": "in_transit",
+        "createdAt": "2026-01-09T20:30:00.000Z",
+        "slaHours": 18,
+        "vehicleId": "veh-02",
+        "driverId": "u-driver-01",
+        "lines": [
+          { "sku": "EGG-CRATE-30", "qty": 34, "uom": "crate" },
+          { "sku": "PEP-KG", "qty": 55, "uom": "kg" }
+        ],
+        "actions": [
+          {
+            "time": "2026-01-09T20:35:00.000Z",
+            "by": "u-super",
+            "type": "created"
+          }
+        ]
+      }
+    }
+  }
+}

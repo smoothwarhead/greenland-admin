@@ -14,6 +14,7 @@ import { TbCurrencyNaira } from "react-icons/tb";
 import { AiOutlineAudit } from "react-icons/ai";
 import { BiSolidDownArrow, BiSolidRightArrow } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
+import { useData } from "../../context/DataContext";
 
 function cx(...arr) {
   return arr.filter(Boolean).join(" ");
@@ -129,8 +130,10 @@ function Node({ node, compact, query }) {
 
 export function Sidebar() {
   const loc = useLocation();
-  const { can, inFarmScope, inStoreScope, activeFarmId, activeStoreId, user } =
-    useAuth();
+  const { can, inFarmScope, inStoreScope, activeFarmId, activeStoreId, user } =  useAuth();
+
+  // const { activeContext } = useData();
+
 
   const [collapsed, setCollapsed] = useState(false);
   const [query, setQuery] = useState("");
@@ -144,6 +147,8 @@ export function Sidebar() {
       activeStoreId,
     });
   }, [can, inFarmScope, inStoreScope, activeFarmId, activeStoreId]);
+
+  // const filtered = filterSidebarForUser(SIDEBAR, { can, activeFarmId, activeStoreId });
 
   const farmName = activeFarmId ? getFarmName(activeFarmId) : null;
   const storeName = activeStoreId ? getStoreName(activeStoreId) : null;

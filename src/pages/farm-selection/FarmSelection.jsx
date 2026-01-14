@@ -9,14 +9,21 @@ import { farmSelectData } from "./farm-select-data";
 import { MdArrowRight } from "react-icons/md";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { FaStore } from "react-icons/fa6";
+import { useData } from "../../context/DataContext";
 
 const FarmSelection = () => {
   const nav = useNavigate();
 
   const [openIndex, setOpenIndex] = useState(0);
 
-  const choose = (type, id) => {
-    setPendingContext({ type, id });
+  const { setActiveContext } = useData();
+
+  const choose = (type, id, name) => {
+    const payload  = { type, id, name};
+    setPendingContext(payload);
+
+    setActiveContext?.(payload);
+
     nav("/login", { replace: true }); //go to login after selecting
   };
 
@@ -52,7 +59,7 @@ const FarmSelection = () => {
             {farmSelectData[openIndex].id === "farm" ? (
               <div className="grid-content">
                 {farmSelectData[openIndex].farms.map((f, index) => (
-                  <div className="farm" key={index} onClick={() => choose("farm", f.id)}>
+                  <div className="farm" key={index} onClick={() => choose("farm", f.id,f.name)}>
                     <div className="farm-img">
                       <img src={f.img} alt={f.id} />
                     </div>

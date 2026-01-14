@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useMemo, useState } from "react";
+import React, { createContext, useContext, useMemo, useState, useEffect } from "react";
 // import { ROLE_PERMISSIONS } from "./rolePermissions";
 // import { PERM } from "./perms";
 
@@ -6,24 +6,22 @@ import { FARMS, STORES } from "../app/orgMap";
 import { ROLE_PERMISSIONS } from "../app/rolePermissions";
 import { PERM } from "../app/perms";
 import { USERS } from "../data/others";
+import { LS_SESSION } from "../data/storageKeys";
+
 // import { farmSelectData } from "../pages/farm-selection/farm-select-data";
 
 const AuthContext = createContext(null);
 
-
-
-
-
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(USERS);
+
+  const [authHydrated, setAuthHydrated] = useState(false);
 
   // active context
   const [activeFarmId, setActiveFarmId] = useState(null);
   const [activeStoreId, setActiveStoreId] = useState(null);
 
   // const allStores = farmSelectData.find(d => d.id === "store").stores.map(s => s.name);
-
-
 
   const permissions = useMemo(() => {
     const base = user ? ROLE_PERMISSIONS[user?.role] || [] : [];
@@ -49,6 +47,17 @@ export function AuthProvider({ children }) {
     if (permissions.has(PERM.ADMIN_ALL)) return true;
     return (user.scopes?.stores || []).includes(storeId);
   };
+
+  useEffect(() => {
+    const raw = localStorage.getItem(LS_SESSION);
+    if (raw) {
+      try {
+        const parsed = JSON.parse(raw);
+        setUser(parsed.user || null);
+      } catch {}
+    }
+    setAuthHydrated(true);
+  }, []);
 
   //login sim
   const login = async ({ demoUserId, context }) => {
@@ -119,6 +128,7 @@ export function AuthProvider({ children }) {
         isAuthenticated,
         login,
         logout,
+        authHydrated
       }}
     >
       {children}

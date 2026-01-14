@@ -12,6 +12,8 @@ import { IoIosArrowDown } from "react-icons/io";
 import UserDropdown from "./UserDropdown";
 import FormSelect from "../ui/forms/form-select/FormSelect";
 import { ContextSelect } from "../ui/forms/context-select/ContextSelect";
+import { formatRoles } from "../../methods";
+import { ROLE } from "../../app/rolePermissions";
 
 function cx(...arr) {
   return arr.filter(Boolean).join(" ");
@@ -164,7 +166,7 @@ export function Topbar() {
               </div>
               <div className="tbUserText">
                 <div className="tbUserName">{user?.name || "User"}</div>
-                <div className="tbUserRole">{user?.role || ""}</div>
+                <div className="tbUserRole">{formatRoles(user?.role, ROLE) || ""}</div>
               </div>
 
               <IoIosArrowDown onClick={() => setUserDrop(!userDrop)} />

@@ -131,7 +131,7 @@ export const STORES = [
   },
   {
     id: "store-eleyele",
-    name: "Orita Eleyele",
+    name: "Eleyele Store",
     state: "Oyo",
     city: "Ibadan",
   },

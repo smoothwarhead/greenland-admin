@@ -105,7 +105,7 @@ export function buildSidebarTreeExact({
 
   return SIDEBAR.map((group) => {
    const hasAnyStoreScope = isAdmin || (typeof inStoreScope === "function" && STORES_ANY(inStoreScope));
-  const hasAnyFarmScope = isAdmin || (typeof inFarmScope === "function" && FARMS_ANY(inFarmScope));
+    const hasAnyFarmScope = isAdmin || (typeof inFarmScope === "function" && FARMS_ANY(inFarmScope));
 
   if (group.group === "Farms" && !activeFarmId) return null;
 

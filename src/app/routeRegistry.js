@@ -84,6 +84,7 @@ export const ROUTES = {
     label: "Batches",
     scope: "farm",
     perm: PERM.BROILERS_VIEW,
+    constraints: { allowedFarmIds: ["prime-estate"] },
   },
   BROILERS_DAILY_PRODUCTION: {
     key: "BROILERS_DAILY_PRODUCTION",
@@ -115,6 +116,15 @@ export const ROUTES = {
   },
 
   // Breeders
+
+  BREEDERS_HOME: {
+    key: "BREEDERS_HOME",
+    path: "/app/farms/:farmId/poultry/breeders",
+    perm: PERM.BREEDERS_VIEW,
+    scope: "farm",
+    constraints: { allowedFarmIds: ["prime-estate"] },
+  },
+
   BREEDERS_FLOCKS: {
     key: "BREEDERS_FLOCKS",
     path: "/app/farms/:farmId/poultry/breeders/flocks",
@@ -138,6 +148,13 @@ export const ROUTES = {
   },
 
   // Hatchery (Prime Estate only)
+  HATCHERY_HOME: {
+    key: "HATCHERY_HOME",
+    path: "/app/farms/:farmId/poultry/hatchery",
+    perms: PERM.HATCHERY_VIEW,
+    scope: "farm",
+    constraints: { allowedFarmIds: ["prime-estate"] },
+  },
   HATCHERY_EQUIPMENT: {
     key: "HATCHERY_EQUIPMENT",
     path: "/app/farms/:farmId/poultry/hatchery/setters-incubators",
@@ -769,6 +786,7 @@ export const SIDEBAR = [
           },
           {
             label: "Broilers",
+            when: ({ activeFarmId }) => activeFarmId === "prime-estate",
             children: [
               { routeKey: "BROILERS_BATCHES" },
               { routeKey: "BROILERS_DAILY_PRODUCTION" },
@@ -779,6 +797,7 @@ export const SIDEBAR = [
           },
           {
             label: "Breeders",
+            when: ({ activeFarmId }) => activeFarmId === "prime-estate",
             children: [
               { routeKey: "BREEDERS_FLOCKS" },
               { routeKey: "BREEDERS_EGG_COLLECTION" },
@@ -797,6 +816,7 @@ export const SIDEBAR = [
           },
           {
             label: "Feed Mill",
+            when: ({ activeFarmId }) => activeFarmId === "prime-estate",
             children: [
               { routeKey: "FEED_FORMULAS" },
               { routeKey: "FEED_PRODUCTION_BATCHES" },
@@ -814,6 +834,7 @@ export const SIDEBAR = [
           },
           {
             label: "Processing",
+            when: ({ activeFarmId }) => activeFarmId === "prime-estate",
             children: [
               { routeKey: "PROCESSING_MEAT" },
               { routeKey: "PROCESSING_MANURE" },
@@ -1014,3 +1035,64 @@ export function passesRouteConstraints(routeKey, { farmId, storeId } = {}) {
     return false;
   return true;
 }
+
+function canSeeRoute(routeKey, { can, activeFarmId, activeStoreId }) {
+  const r = ROUTES[routeKey];
+  if (!r) return false;
+
+  // scope check is usually handled elsewhere, but safe:
+  if (r.scope === "farm" && !activeFarmId) return false;
+  if (r.scope === "store" && !activeStoreId) return false;
+
+  // permission check
+  if (r.perm && can && !can(r.perm)) return false;
+
+  // constraints check
+  if (!passesRouteConstraints(routeKey, { farmId: activeFarmId, storeId: activeStoreId }))
+    return false;
+
+  return true;
+}
+
+export function filterSidebarForUser(SIDEBAR, ctx) {
+  const { can, activeFarmId, activeStoreId } = ctx;
+
+  function walk(node) {
+    // If node has a `when`, it must pass
+    if (typeof node.when === "function" && !node.when({ activeFarmId, activeStoreId })) {
+      return null;
+    }
+
+    // Route leaf
+    if (node.routeKey) {
+      return canSeeRoute(node.routeKey, { can, activeFarmId, activeStoreId }) ? node : null;
+    }
+
+    // Group with children
+    if (node.children) {
+      const kids = node.children
+        .map(walk)
+        .filter(Boolean);
+
+      // remove empty nodes
+      if (kids.length === 0) return null;
+      return { ...node, children: kids };
+    }
+
+    // Group with items (top-level SIDEBAR uses items)
+    if (node.items) {
+      const items = node.items
+        .map(walk)
+        .filter(Boolean);
+
+      if (items.length === 0) return null;
+      return { ...node, items };
+    }
+
+    // Plain label nodes
+    return node;
+  }
+
+  return SIDEBAR.map(walk).filter(Boolean);
+}
+

@@ -12,8 +12,6 @@ import FormInput from "../../components/ui/forms/form-input/FormInput";
 import BackButton from "../../components/ui/buttons/back-btn/BackButton";
 import { buildTo } from "../../app/routeRegistry";
 
-
-
 const Login = () => {
   const { demoUsers, login } = useAuth();
   const nav = useNavigate();
@@ -31,6 +29,30 @@ const Login = () => {
       return STORES.find((s) => s.id === ctx.id)?.name || ctx.id;
     return "Unknown";
   }, [ctx]);
+
+  // useEffect(() => {
+  //   const raw = localStorage.getItem(LS_KEY);
+  //   if (!raw) {
+  //     nav("/select-context");
+  //     return;
+  //   }
+  //   const ctx = JSON.parse(raw);
+  //   setContext(ctx);
+  //   setActiveContext?.(ctx);
+
+  //   (async () => {
+  //     setStatus("loading");
+  //     setError(null);
+  //     try {
+  //       const res = await loadOrg();
+  //       setUsers(res?.data?.users || []);
+  //       setStatus("ready");
+  //     } catch (e) {
+  //       setError(String(e?.message || e));
+  //       setStatus("error");
+  //     }
+  //   })();
+  // }, []);
 
   const [formData, setFormData] = useState({
     password: "",
@@ -53,7 +75,8 @@ const Login = () => {
     if (pw !== "1234") return alert("Wrong password. Use 1234 (demo).");
 
     const user = await login({ demoUserId, context: ctx });
-    clearPendingContext();
+    // clearPendingContext();
+    // console.log(user);
 
     // redirect target:
     // If user tried to visit a deep link, allow that; else go to selected dashboard.
