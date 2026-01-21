@@ -16,13 +16,13 @@ const FarmSelection = () => {
 
   const [openIndex, setOpenIndex] = useState(0);
 
-  const { setActiveContext } = useData();
+  const { setActiveContextState } = useData();
 
   const choose = (type, id, name) => {
     const payload  = { type, id, name};
     setPendingContext(payload);
 
-    setActiveContext?.(payload);
+    setActiveContextState(payload);
 
     nav("/login", { replace: true }); //go to login after selecting
   };

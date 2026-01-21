@@ -7,6 +7,7 @@ import { ROLE_PERMISSIONS } from "../app/rolePermissions";
 import { PERM } from "../app/perms";
 import { USERS } from "../data/others";
 import { LS_SESSION } from "../data/storageKeys";
+import SessionManager from "../utils/SessionManager";
 
 // import { farmSelectData } from "../pages/farm-selection/farm-select-data";
 
@@ -16,6 +17,9 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(USERS);
 
   const [authHydrated, setAuthHydrated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+
 
   // active context
   const [activeFarmId, setActiveFarmId] = useState(null);
@@ -28,7 +32,7 @@ export function AuthProvider({ children }) {
     return new Set(base);
   }, [user]);
 
-  const isAuthenticated = !!user;
+  // const isAuthenticated = !!user;
 
   const can = (perm) => {
     if (!user) return false;
@@ -49,12 +53,14 @@ export function AuthProvider({ children }) {
   };
 
   useEffect(() => {
-    const raw = localStorage.getItem(LS_SESSION);
-    if (raw) {
+    const saved = SessionManager.getUserSession(LS_SESSION);
+    if (saved) {
       try {
-        const parsed = JSON.parse(raw);
-        setUser(parsed.user || null);
+        
+        setUser(saved.user || null);
+        setIsAuthenticated(true);
       } catch {}
+
     }
     setAuthHydrated(true);
   }, []);
@@ -63,6 +69,9 @@ export function AuthProvider({ children }) {
   const login = async ({ demoUserId, context }) => {
     const next = USERS.find((u) => u.id === demoUserId) || USERS[0];
     setUser(next);
+    setIsAuthenticated(true);
+    SessionManager.setUserSession(LS_SESSION, { user:  next, context, issuedAt: new Date().toISOString() });
+
 
     // set selected context into active farm/store if user has scope
     if (context?.type === "farm") {
@@ -89,6 +98,7 @@ export function AuthProvider({ children }) {
       setActiveStoreId(next.scopes?.stores?.[0] || null);
     }
 
+
     return next;
   };
 
@@ -96,6 +106,9 @@ export function AuthProvider({ children }) {
     setUser(null);
     setActiveFarmId(null);
     setActiveStoreId(null);
+    setIsAuthenticated(false);
+    SessionManager.removeUserSession(LS_SESSION);
+
   };
 
   // When switching user, reset selections to something valid

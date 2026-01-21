@@ -100,7 +100,7 @@ const Login = () => {
   return (
     <div className="login-page">
       <div className="login-header">
-        <BackButton action={() => nav(-1)} />
+        <BackButton action={() => nav("/")} />
       </div>
       <div className="field">
         <label>Demo user</label>

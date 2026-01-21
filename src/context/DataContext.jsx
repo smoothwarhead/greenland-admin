@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { loadFarmOverview, loadStoreOverview } from "../app/dataApi";
 import { LS_ACTIVE_CONTEXT } from "../data/storageKeys";
+import SessionManager from "../utils/SessionManager";
 
 
 const DataCtx = createContext(null);
@@ -29,8 +30,8 @@ export function DataProvider({ children }) {
 
   function setActiveContextState(ctx) {
     setActiveContext(ctx);
-    if (ctx) localStorage.setItem(LS_ACTIVE_CONTEXT, JSON.stringify(ctx));
-    else localStorage.removeItem(LS_ACTIVE_CONTEXT);
+    if (ctx) SessionManager.setUserContext(LS_ACTIVE_CONTEXT, ctx);
+    else SessionManager.removeUserContext(LS_ACTIVE_CONTEXT);
   }
 
   // load overview for the active context
@@ -84,8 +85,8 @@ export function DataProvider({ children }) {
 
   
   useEffect(() => {
-    const raw = localStorage.getItem(LS_ACTIVE_CONTEXT);
-    if (raw) setActiveContextState(JSON.parse(raw));
+    const saved = SessionManager.getUserContext(LS_ACTIVE_CONTEXT);
+    if (saved) setActiveContextState(saved);
     setDataHydrated(true);
   }, []);
 
@@ -102,7 +103,8 @@ export function DataProvider({ children }) {
     storeState,
     setStoreState,
     dataHydrated,
-    setDataHydrated
+    setDataHydrated,
+    setActiveContextState
   };
 
   return <DataCtx.Provider value={value}>{children}</DataCtx.Provider>;

@@ -7,11 +7,14 @@ import { ROUTE_LIST } from "./app/routeList";
 
 import { RequireAccessWithConstraints } from "./app/RequireAccessWithConstraints";
 import { PAGE_COMPONENTS } from "./app/pages";
-import { RequireAuth, RequirePendingContext } from "./app/routeGuards";
+import { RequirePendingContext } from "./app/routeGuards";
 import { SelectContextFirstLoad } from "./app/SelectContextFirstLoad";
 import { LoginPage } from "./pages/account/LoginPage";
 import FarmSelection from "./pages/farm-selection/FarmSelection";
 import Login from "./pages/account/Login";
+import { IndexRedirect } from "./guards/IndexRedirect";
+import { RequireAuth } from "./guards/RequireAuth";
+
 
 
 
@@ -35,8 +38,8 @@ export default function App() {
         <BrowserRouter>
           <Routes>
 
-            {/* First load goes here */}
-            <Route path="/" element={<Navigate to="/select-context" replace />} />
+            {/* First load goes here. Smart index (no more forced /select-context on refresh) */}
+            <Route path="/" element={<IndexRedirect />} />
 
             <Route path="/select-context" element={<FarmSelection />} />
 
@@ -55,7 +58,7 @@ export default function App() {
             {/* <Route path="/app/select" element={<SelectContextLanding />} /> */}
             {/* ✅ Protected App */}
             <Route
-              path="/"
+              path="/app"
               element={
                 <RequireAuth>
                   <AppShell />
@@ -68,7 +71,7 @@ export default function App() {
                 return (
                   <Route
                     key={r.key}
-                    path={r.path}
+                    path={r.path.replace("/app/", "")}
                     element={
                       <RequireAccessWithConstraints routeKey={r.key}>
                         <Suspense fallback={<Fallback />}>
