@@ -1,6 +1,5 @@
 import { SeedDB } from "../data/seedDb";
 
-
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 function cacheKey(kind, id) {
@@ -56,7 +55,8 @@ export async function loadFarmLayers(farmId, { preferCache = true } = {}) {
   const key = cacheKey("farmLayers", farmId);
   const cached = readCache(key);
 
-  if (preferCache && isFresh(cached)) return { data: cached.data, fromCache: true };
+  if (preferCache && isFresh(cached))
+    return { data: cached.data, fromCache: true };
   await sleep(450);
 
   const data = SeedDB.getFarmLayers(farmId);
@@ -68,7 +68,8 @@ export async function loadFarmCrops(farmId, { preferCache = true } = {}) {
   const key = cacheKey("farmCrops", farmId);
   const cached = readCache(key);
 
-  if (preferCache && isFresh(cached)) return { data: cached.data, fromCache: true };
+  if (preferCache && isFresh(cached))
+    return { data: cached.data, fromCache: true };
   await sleep(450);
 
   const data = SeedDB.getFarmCrops(farmId);
@@ -80,7 +81,8 @@ export async function loadFarmInventory(farmId, { preferCache = true } = {}) {
   const key = cacheKey("farmInventory", farmId);
   const cached = readCache(key);
 
-  if (preferCache && isFresh(cached)) return { data: cached.data, fromCache: true };
+  if (preferCache && isFresh(cached))
+    return { data: cached.data, fromCache: true };
   await sleep(450);
 
   const data = SeedDB.getFarmInventory(farmId);
@@ -92,7 +94,8 @@ export async function loadFarmFinance(farmId, { preferCache = true } = {}) {
   const key = cacheKey("farmFinance", farmId);
   const cached = readCache(key);
 
-  if (preferCache && isFresh(cached)) return { data: cached.data, fromCache: true };
+  if (preferCache && isFresh(cached))
+    return { data: cached.data, fromCache: true };
   await sleep(450);
 
   const data = SeedDB.getFarmFinance(farmId);
@@ -105,7 +108,8 @@ export async function loadFarmHatchery(farmId, { preferCache = true } = {}) {
   const key = cacheKey("farmHatchery", farmId);
   const cached = readCache(key);
 
-  if (preferCache && isFresh(cached)) return { data: cached.data, fromCache: true };
+  if (preferCache && isFresh(cached))
+    return { data: cached.data, fromCache: true };
   await sleep(450);
 
   const data = SeedDB.getFarmHatchery(farmId);
@@ -118,7 +122,8 @@ export async function loadStoreOverview(storeId, { preferCache = true } = {}) {
   const key = cacheKey("storeOverview", storeId);
   const cached = readCache(key);
 
-  if (preferCache && isFresh(cached)) return { data: cached.data, fromCache: true };
+  if (preferCache && isFresh(cached))
+    return { data: cached.data, fromCache: true };
   await sleep(500);
 
   const data = SeedDB.getStoreOverview(storeId);
@@ -130,7 +135,8 @@ export async function loadStorePOS(storeId, { preferCache = true } = {}) {
   const key = cacheKey("storePOS", storeId);
   const cached = readCache(key);
 
-  if (preferCache && isFresh(cached)) return { data: cached.data, fromCache: true };
+  if (preferCache && isFresh(cached))
+    return { data: cached.data, fromCache: true };
   await sleep(450);
 
   const data = SeedDB.getStorePOS(storeId);
@@ -142,7 +148,8 @@ export async function loadStoreInventory(storeId, { preferCache = true } = {}) {
   const key = cacheKey("storeInventory", storeId);
   const cached = readCache(key);
 
-  if (preferCache && isFresh(cached)) return { data: cached.data, fromCache: true };
+  if (preferCache && isFresh(cached))
+    return { data: cached.data, fromCache: true };
   await sleep(450);
 
   const data = SeedDB.getStoreInventory(storeId);
@@ -150,14 +157,50 @@ export async function loadStoreInventory(storeId, { preferCache = true } = {}) {
   return { data, fromCache: false };
 }
 
-export async function loadStoreTransfersIn(storeId, { preferCache = true } = {}) {
+export async function loadStoreTransfersIn(
+  storeId,
+  { preferCache = true } = {},
+) {
   const key = cacheKey("storeTransfersIn", storeId);
   const cached = readCache(key);
 
-  if (preferCache && isFresh(cached)) return { data: cached.data, fromCache: true };
+  if (preferCache && isFresh(cached))
+    return { data: cached.data, fromCache: true };
   await sleep(450);
 
   const data = SeedDB.getStoreTransfersIn(storeId);
   withCache(key, data, 900);
+  return { data, fromCache: false };
+}
+
+export async function loadCommission({ preferCache = true } = {}) {
+  const key = "cache:commission:global";
+  const cached = (() => {
+    try {
+      return JSON.parse(localStorage.getItem(key) || "null");
+    } catch {
+      return null;
+    }
+  })();
+
+  // const isFresh = (x) => {
+  //   if (!x?.savedAt || !x?.ttlSeconds) return false;
+  //   return Date.now() - new Date(x.savedAt).getTime() < x.ttlSeconds * 1000;
+  // };
+
+  if (preferCache && isFresh(cached))
+    return { data: cached.data, fromCache: true };
+
+  await new Promise((r) => setTimeout(r, 450));
+  const data = SeedDB.getCommission();
+
+  localStorage.setItem(
+    key,
+    JSON.stringify({
+      savedAt: new Date().toISOString(),
+      ttlSeconds: 900,
+      data,
+    }),
+  );
   return { data, fromCache: false };
 }

@@ -1,4 +1,4 @@
-import { cx } from "../../methods";
+import { cx } from "../../utils/methods";
 
 
 

@@ -12,12 +12,10 @@ import { IoIosArrowDown } from "react-icons/io";
 import UserDropdown from "./UserDropdown";
 import FormSelect from "../ui/forms/form-select/FormSelect";
 import { ContextSelect } from "../ui/forms/context-select/ContextSelect";
-import { formatRoles } from "../../methods";
+import { formatRoles, cx } from "../../utils/methods";
 import { ROLE } from "../../app/rolePermissions";
 
-function cx(...arr) {
-  return arr.filter(Boolean).join(" ");
-}
+
 
 function getFarmName(id) {
   return FARMS.find((f) => f.id === id)?.name || id;

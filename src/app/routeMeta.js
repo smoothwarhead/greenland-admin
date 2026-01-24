@@ -30,7 +30,7 @@ export function findRouteByPathname(pathname) {
 export function getBreadcrumbs({ pathname, activeFarmId, activeStoreId }) {
   const found = findRouteByPathname(pathname);
   const crumbs = [
-    { label: "Dashboard", to: ROUTES.APP_HOME.path }
+    // { label: "Dashboard", to: ROUTES.APP_HOME.path }
   ];
 
   if (!found) return crumbs;

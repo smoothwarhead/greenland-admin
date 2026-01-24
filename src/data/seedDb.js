@@ -10,6 +10,7 @@ export const SeedDB = {
   users: seed.users,
   catalog: seed.catalog,
   transfers: seed.seed.transfers,
+  commission: seed.commission,
 
   // ---- context payloads (overview)
   getFarmOverview(farmId) {
@@ -139,4 +140,15 @@ export const SeedDB = {
     if (!t) throw new Error(`Transfer not found: ${transferNo}`);
     return t;
   },
+
+
+  getCommission() {
+    const c = seed.commission;
+    if (!c) throw new Error("Commission seed not found at seed.seed.commission");
+    return { commission: c };
+  }
+
+
+
+
 };

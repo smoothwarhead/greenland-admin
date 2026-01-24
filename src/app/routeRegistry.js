@@ -1,13 +1,13 @@
 import { PERM } from "./perms";
 
 export const ROUTES = {
-  APP_HOME: {
-    key: "APP_HOME",
-    path: "/app",
-    label: "Dashboard",
-    scope: "none",
-    perm: null,
-  },
+  // APP_HOME: {
+  //   key: "APP_HOME",
+  //   path: "/app",
+  //   label: "Dashboard",
+  //   scope: "none",
+  //   perm: PERM.DASHBOARD_VIEW,
+  // },
   NOT_AUTHORIZED: {
     key: "NOT_AUTHORIZED",
     path: "/not-authorized",
@@ -760,11 +760,155 @@ export const ROUTES = {
     scope: "none",
     perm: PERM.AUDIT_READ,
   },
+
+  COMMISSION_OVERVIEW: {
+    key: "COMMISSION_OVERVIEW",
+    path: "/app/commission/overview",
+    label: "Commission Overview",
+    scope: "none",
+    perm: PERM.COMMISSION_VIEW,
+  },
+
+  COMMISSION_AGENTS: {
+    key: "COMMISSION_AGENTS",
+    path: "/app/commission/agents",
+    label: "Agents",
+    scope: "none",
+    perm: PERM.COMMISSION_AGENTS_VIEW,
+  },
+  COMMISSION_AGENTS_CREATE: {
+    key: "COMMISSION_AGENTS_CREATE",
+    path: "/app/commission/agents/create",
+    label: "Create Agent",
+    scope: "none",
+    perm: PERM.COMMISSION_AGENTS_MANAGE,
+  },
+  COMMISSION_AGENTS_EDIT: {
+    key: "COMMISSION_AGENTS_EDIT",
+    path: "/app/commission/agents/:agentId/edit",
+    label: "Edit Agent",
+    scope: "none",
+    perm: PERM.COMMISSION_AGENTS_MANAGE,
+  },
+
+  COMMISSION_CATALOG_MAP: {
+    key: "COMMISSION_CATALOG_MAP",
+    path: "/app/commission/catalog-mapping",
+    label: "Catalog Mapping",
+    scope: "none",
+    perm: PERM.COMMISSION_MANAGE,
+  },
+
+  COMMISSION_RULES: {
+    key: "COMMISSION_RULES",
+    path: "/app/commission/rules",
+    label: "Commission Rules",
+    scope: "none",
+    perm: PERM.COMMISSION_RULES_VIEW,
+  },
+  COMMISSION_RULES_CREATE: {
+    key: "COMMISSION_RULES_CREATE",
+    path: "/app/commission/rules/create",
+    label: "Create Rule",
+    scope: "none",
+    perm: PERM.COMMISSION_RULES_MANAGE,
+  },
+  COMMISSION_RULES_EDIT: {
+    key: "COMMISSION_RULES_EDIT",
+    path: "/app/commission/rules/:ruleId/edit",
+    label: "Edit Rule",
+    scope: "none",
+    perm: PERM.COMMISSION_RULES_MANAGE,
+  },
+
+  COMMISSION_ORDERS: {
+    key: "COMMISSION_ORDERS",
+    path: "/app/commission/orders",
+    label: "Orders & Claims",
+    scope: "none",
+    perm: PERM.COMMISSION_ORDERS_VIEW,
+  },
+  COMMISSION_RECONCILE: {
+    key: "COMMISSION_RECONCILE",
+    path: "/app/commission/reconcile",
+    label: "Reconcile",
+    scope: "none",
+    perm: PERM.COMMISSION_ORDERS_RECONCILE,
+  },
+  COMMISSION_APPROVALS: {
+    key: "COMMISSION_APPROVALS",
+    path: "/app/commission/approvals",
+    label: "Approvals",
+    scope: "none",
+    perm: PERM.COMMISSION_APPROVE,
+  },
+
+  COMMISSION_PAYOUTS: {
+    key: "COMMISSION_PAYOUTS",
+    path: "/app/commission/payouts",
+    label: "Payouts",
+    scope: "none",
+    perm: PERM.COMMISSION_PAYOUTS_VIEW,
+  },
+  COMMISSION_PAYOUTS_RUN: {
+    key: "COMMISSION_PAYOUTS_RUN",
+    path: "/app/commission/payouts/run",
+    label: "Run Payout",
+    scope: "none",
+    perm: PERM.COMMISSION_PAYOUTS_RUN,
+  },
+
+  COMMISSION_DISPUTES: {
+    key: "COMMISSION_DISPUTES",
+    path: "/app/commission/disputes",
+    label: "Disputes",
+    scope: "none",
+    perm: PERM.COMMISSION_DISPUTES_VIEW,
+  },
+  COMMISSION_REPORTS: {
+    key: "COMMISSION_REPORTS",
+    path: "/app/commission/reports",
+    label: "Commission Reports",
+    scope: "none",
+    perm: PERM.COMMISSION_REPORTS_VIEW,
+  },
+
+  COMMISSION_SETTINGS: {
+    key: "COMMISSION_SETTINGS",
+    path: "/app/commission/settings",
+    label: "Commission Settings",
+    scope: "none",
+    perm: PERM.COMMISSION_SETTINGS_MANAGE,
+  },
+
+  //  COMMISSION_PRODUCTS_EDIT: {
+  //   key: "COMMISSION_PRODUCTS",
+  //   path: "/app/commission/products",
+  //   label: "Commission products",
+  //   scope: "none",
+  //   perm: PERM.COMMISSION_VIEW,
+  // },
 };
 
 // Sidebar config (uses routeKeys)
 export const SIDEBAR = [
-  { group: "Overview", items: [{ routeKey: "APP_HOME" }] },
+  // { group: "Overview", items: [{ routeKey: "APP_HOME" }] },
+
+{
+  group: "Sales Commission",
+  items: [
+    { routeKey: "COMMISSION_OVERVIEW" },
+    { routeKey: "COMMISSION_AGENTS" },
+    { routeKey: "COMMISSION_CATALOG_MAP" },
+    { routeKey: "COMMISSION_RULES" },
+    { routeKey: "COMMISSION_ORDERS" },
+    { routeKey: "COMMISSION_RECONCILE" },
+    { routeKey: "COMMISSION_APPROVALS" },
+    { routeKey: "COMMISSION_PAYOUTS" },
+    { routeKey: "COMMISSION_REPORTS" },
+    { routeKey: "COMMISSION_SETTINGS" },
+  ],
+},
 
   {
     group: "Farms",
@@ -1013,6 +1157,22 @@ export const SIDEBAR = [
     group: "Audit",
     items: [{ routeKey: "AUDIT_ACTIVITY" }, { routeKey: "AUDIT_EXPORTS" }],
   },
+
+  // {
+  //   group: "People",
+  //   items: [
+  //     { routeKey: "USERS" },
+  //     { routeKey: "USERS_CREATE" },
+  //     { routeKey: "USERS_EDIT" },
+  //     { routeKey: "USERS_SUSPEND" },
+  //     { routeKey: "USERS_WALLET_ADJUST" },
+
+  //     { routeKey: "ROLES" },
+  //     { routeKey: "ROLES_CREATE" },
+  //     { routeKey: "ROLES_EDIT" },
+  //     { routeKey: "ROLES_CLONE" },
+  //   ],
+  // },
 ];
 
 export function buildTo(routeKey, params = {}) {
@@ -1048,7 +1208,12 @@ function canSeeRoute(routeKey, { can, activeFarmId, activeStoreId }) {
   if (r.perm && can && !can(r.perm)) return false;
 
   // constraints check
-  if (!passesRouteConstraints(routeKey, { farmId: activeFarmId, storeId: activeStoreId }))
+  if (
+    !passesRouteConstraints(routeKey, {
+      farmId: activeFarmId,
+      storeId: activeStoreId,
+    })
+  )
     return false;
 
   return true;
@@ -1059,20 +1224,23 @@ export function filterSidebarForUser(SIDEBAR, ctx) {
 
   function walk(node) {
     // If node has a `when`, it must pass
-    if (typeof node.when === "function" && !node.when({ activeFarmId, activeStoreId })) {
+    if (
+      typeof node.when === "function" &&
+      !node.when({ activeFarmId, activeStoreId })
+    ) {
       return null;
     }
 
     // Route leaf
     if (node.routeKey) {
-      return canSeeRoute(node.routeKey, { can, activeFarmId, activeStoreId }) ? node : null;
+      return canSeeRoute(node.routeKey, { can, activeFarmId, activeStoreId })
+        ? node
+        : null;
     }
 
     // Group with children
     if (node.children) {
-      const kids = node.children
-        .map(walk)
-        .filter(Boolean);
+      const kids = node.children.map(walk).filter(Boolean);
 
       // remove empty nodes
       if (kids.length === 0) return null;
@@ -1081,9 +1249,7 @@ export function filterSidebarForUser(SIDEBAR, ctx) {
 
     // Group with items (top-level SIDEBAR uses items)
     if (node.items) {
-      const items = node.items
-        .map(walk)
-        .filter(Boolean);
+      const items = node.items.map(walk).filter(Boolean);
 
       if (items.length === 0) return null;
       return { ...node, items };
@@ -1095,4 +1261,3 @@ export function filterSidebarForUser(SIDEBAR, ctx) {
 
   return SIDEBAR.map(walk).filter(Boolean);
 }
-

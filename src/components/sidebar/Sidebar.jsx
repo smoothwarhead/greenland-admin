@@ -4,28 +4,28 @@ import { buildSidebarTreeExact } from "../../app/sidebarRules";
 import { useAuth } from "../../context/AuthContext";
 import "./sidebar.scss";
 import NavLogo from "../../assets/logos/G-LOGO-CLEAN-LIGHT.png";
-import { farmSelectData } from "../../pages/farm-selection/farm-select-data";
+// import { farmSelectData } from "../../pages/farm-selection/farm-select-data";
 
-import { FARMS, STORES } from "../../app/orgMap";
+// import { FARMS, STORES } from "../../app/orgMap";
 import { MdHome, MdOutlineCorporateFare, MdOutlineDashboard } from "react-icons/md";
 import { FaDotCircle, FaStoreAlt } from "react-icons/fa";
 import { RiArrowLeftRightFill } from "react-icons/ri";
-import { TbCurrencyNaira } from "react-icons/tb";
+import { TbCurrencyNaira, TbMoneybag } from "react-icons/tb";
 import { AiOutlineAudit } from "react-icons/ai";
 import { BiSolidDownArrow, BiSolidRightArrow } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
 import { useData } from "../../context/DataContext";
+import { cx } from "../../utils/methods";
 
-function cx(...arr) {
-  return arr.filter(Boolean).join(" ");
-}
 
-function getFarmName(id) {
-  return FARMS.find((f) => f.id === id)?.name || null;
-}
-function getStoreName(id) {
-  return STORES.find((s) => s.id === id)?.name || null;
-}
+
+
+// function getFarmName(id) {
+//   return FARMS.find((f) => f.id === id)?.name || null;
+// }
+// function getStoreName(id) {
+//   return STORES.find((s) => s.id === id)?.name || null;
+// }
 
 function Icon({ name }) {
   // Minimal “icons” (no lib). Add more as needed.
@@ -40,6 +40,7 @@ function Icon({ name }) {
     chevDown: <BiSolidDownArrow />,
     chevRight: <BiSolidRightArrow />,
     search: <FiSearch />,
+    commission: <TbMoneybag />
   };
   return (
     <span className="sbIcon" aria-hidden="true">
@@ -56,6 +57,7 @@ function GroupIconName(group) {
   if (group === "HR") return "hr";
   if (group.startsWith("Finance")) return "fin";
   if (group === "Audit") return "audit";
+  if (group === "Commission") return "commission";
   return "dash";
 }
 
@@ -129,8 +131,10 @@ function Node({ node, compact, query }) {
 }
 
 export function Sidebar() {
+
   const loc = useLocation();
-  const { can, inFarmScope, inStoreScope, activeFarmId, activeStoreId, user } =  useAuth();
+  const { can, inFarmScope, inStoreScope, user } =  useAuth();
+  const { activeContext, activeFarmId, activeStoreId} =  useData();
 
   // const { activeContext } = useData();
 
@@ -150,15 +154,7 @@ export function Sidebar() {
 
   // const filtered = filterSidebarForUser(SIDEBAR, { can, activeFarmId, activeStoreId });
 
-  const farmName = activeFarmId ? getFarmName(activeFarmId) : null;
-  const storeName = activeStoreId ? getStoreName(activeStoreId) : null;
 
-  const contextText = farmName
-    ? farmName
-    : storeName
-    ? storeName
-    : "No context";
-  const contextType = farmName ? "Farm" : storeName ? "Store" : "—";
 
   return (
     <aside className={cx("sidebarPro", collapsed && "collapsed")}>
@@ -191,12 +187,12 @@ export function Sidebar() {
           <>
             <div className="sbContextTop">
               {/* <span className="sbContextTag">{contextType}</span> */}
-              <span className="sbContextName"  title={contextText}>{contextText}</span>
+              <span className="sbContextName"  title={activeContext?.name}>{activeContext?.name}</span>
             </div>
            
           </>
         ) : (
-          <div className="sbContextMini" title={contextText}>
+          <div className="sbContextMini" title={activeContext?.name}>
             {contextType === "Farm" ? "⌂" : contextType === "Store" ? "⌁" : "•"}
           </div>
         )}

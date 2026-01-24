@@ -1878,5 +1878,94 @@
         ]
       }
     }
+  },
+
+  "commission": {
+    "agents": [
+      {
+        "id": "ag-001",
+        "name": "Oluwaseun A.",
+        "type": "FIELD_AGENT",
+        "status": "ACTIVE",
+        "phone": "+2348012345678",
+        "bank": {
+          "name": "GTBank",
+          "accountName": "Oluwaseun A",
+          "accountNumber": "0123456789"
+        },
+        "channels": ["WHATSAPP", "REFERRALS"],
+        "assignedStores": ["store-ibadan-01", "store-ibadan-02"],
+        "createdAt": "2026-01-05T09:10:00.000Z"
+      }
+    ],
+    "rules": [
+      {
+        "id": "rule-egg-crates",
+        "name": "Egg Crates Commission",
+        "status": "ACTIVE",
+        "basis": "NET_SALES",
+        "rateType": "PERCENT",
+        "rate": 2.0,
+        "appliesTo": { "skuPrefixes": ["EGG-"], "categories": ["Eggs"] },
+        "conditions": { "minNet": 50000, "channel": ["WHATSAPP", "REFERRALS"] },
+        "effectiveFrom": "2026-01-01",
+        "priority": 10
+      }
+    ],
+    "orders": [
+      {
+        "id": "ord-10021",
+        "storeId": "store-ibadan-01",
+        "posReceiptNo": "IBD-01-98311",
+        "agentId": "ag-001",
+        "customerName": "Mrs. Adeyemi",
+        "gross": 92000,
+        "discount": 2000,
+        "net": 90000,
+        "status": "CONFIRMED",
+        "soldAt": "2026-01-13T12:20:00.000Z",
+        "lines": [
+          {
+            "sku": "EGG-CRATE-30",
+            "name": "Egg Crate (30)",
+            "qty": 10,
+            "unitPrice": 9000
+          }
+        ],
+        "commission": {
+          "ruleId": "rule-egg-crates",
+          "amount": 1800,
+          "status": "PENDING_APPROVAL"
+        }
+      }
+    ],
+    "approvals": [
+      {
+        "id": "appr-9001",
+        "orderId": "ord-10021",
+        "status": "PENDING",
+        "requestedAt": "2026-01-13T12:25:00.000Z"
+      }
+    ],
+    "payouts": [
+      {
+        "id": "pay-0007",
+        "period": "2026-W03",
+        "status": "DRAFT",
+        "lines": [
+          { "agentId": "ag-001", "amount": 1800, "orders": ["ord-10021"] }
+        ],
+        "createdAt": "2026-01-13T18:00:00.000Z"
+      }
+    ],
+    "disputes": [
+      {
+        "id": "dis-001",
+        "orderId": "ord-09998",
+        "agentId": "ag-001",
+        "reason": "Agent mismatch",
+        "status": "OPEN"
+      }
+    ]
   }
 }

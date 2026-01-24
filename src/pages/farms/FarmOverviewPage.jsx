@@ -9,7 +9,7 @@ import { useData } from "../../context/DataContext";
 import { FARMS, STORES } from "../../app/orgMap";
 import { buildTo, ROUTES } from "../../app/routeRegistry";
 import { PERM } from "../../app/perms";
-import { fmtInt, fmtNaira, formatDate, computeHouseHealth } from "../../methods";
+import { fmtInt, fmtNaira, formatDate, computeHouseHealth } from "../../utils/methods";
 import Card from "../../components/ui/Card";
 import "./overviews.scss";
 

@@ -1,19 +1,30 @@
-const KEY = "greenland_pending_context_v1";
-// { type: "farm"|"store", id: "prime-estate"|"store-odeda" }
+import { LS_ACTIVE_CONTEXT } from "../data/storageKeys";
+import SessionManager from "../utils/SessionManager";
+
 
 export function setPendingContext(ctx) {
-  localStorage.setItem(KEY, JSON.stringify(ctx));
+  if(!ctx) return;
+  SessionManager.setUserContext(LS_ACTIVE_CONTEXT, ctx)
 }
 
 export function getPendingContext() {
   try {
-    const raw = localStorage.getItem(KEY);
-    return raw ? JSON.parse(raw) : null;
+    const raw = SessionManager.getUserContext(LS_ACTIVE_CONTEXT);
+    return raw ? raw : null;
   } catch {
     return null;
   }
 }
 
 export function clearPendingContext() {
-  localStorage.removeItem(KEY);
+  SessionManager.removeUserContext(LS_ACTIVE_CONTEXT);
 }
+
+export function popPendingContext() {
+  const ctx = getPendingContext();
+  clearPendingContext();
+  return ctx
+  
+}
+
+
