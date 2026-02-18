@@ -1,5 +1,7 @@
 
 
+import { Button } from "../../../components/ui/buttons/Buttons";
+import KPI from "../../../components/ui/Kpi";
 import "./commission-overview.scss";
 
 import { useMemo, useState } from "react";
@@ -169,20 +171,29 @@ export default function CommissionOverview() {
     <div className="page">
       {/* Header */}
       <div className="pageHeader">
-        <div className="titleBlock">
-          <div className="pageTitle">Commission Overview</div>
-          <div className="pageSubtitle">
-            Track commissions across stores, farms, agents, and channels.
-          </div>
-        </div>
-
+       
         <div className="headerActions">
-          <button className="btn btn--ghost" onClick={onExport}>
+          <Button 
+            text="Create Product"
+            action={onExport}
+            variant="primary"
+          />
+          <Button 
+            text="Export CSV"
+            action={onExport}
+            variant="btn--ghost"
+          />
+          <Button 
+            text="Create Payout"
+            action={() => alert("Open payout flow")}
+            variant="btn--ghost"
+          />
+          {/* <button className="btn btn--ghost" onClick={onExport}>
             Export CSV
           </button>
           <button className="btn btn--primary" onClick={() => alert("Open payout flow")}>
             Create Payout
-          </button>
+          </button> */}
         </div>
       </div>
 
@@ -255,11 +266,11 @@ export default function CommissionOverview() {
 
       {/* KPI Row */}
       <div className="kpiGrid">
-        <KpiCard label="Total Commission" value={money(kpis.total)} sub="All statuses" icon="₦" />
-        <KpiCard label="Paid" value={money(kpis.paid)} sub="Completed payouts" icon="✓" />
-        <KpiCard label="Pending" value={money(kpis.pending)} sub="Awaiting approval" icon="⏳" />
-        <KpiCard label="Avg. Rate" value={pct(kpis.avgRate)} sub="Across filtered records" icon="%" />
-        <KpiCard
+        <KPI label="Total Commission" value={money(kpis.total)} sub="All statuses" icon="₦" />
+        <KPI label="Paid" value={money(kpis.paid)} sub="Completed payouts" icon="✓" />
+        <KPI label="Pending" value={money(kpis.pending)} sub="Awaiting approval" icon="⏳" />
+        <KPI label="Avg. Rate" value={pct(kpis.avgRate)} sub="Across filtered records" icon="%" />
+        <KPI
           label="Top Earner"
           value={kpis.topAgent}
           sub={`Commission: ${money(kpis.topAmount)}`}

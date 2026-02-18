@@ -1,0 +1,80 @@
+.btn {
+  width: fit-content;
+  height: fit-content;
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: var(--r-12);
+  padding: 10px 1rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 140ms ease;
+  background: var(--surface-2);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  svg{
+    font-size: 1rem;
+  }
+
+  &.primary {
+    background: var(--primary);
+    border-color: color-mix(in srgb, var(--primary) 60%, var(--border));
+    color: white;
+  }
+
+  &.selected {
+    background: var(--selected);
+    border-color: color-mix(in srgb, var(--primary) 60%, var(--border));
+    color: var(--text);
+  }
+
+  &:hover {
+  transform: translateY(-1px);
+}
+
+
+&:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--focus);
+}
+
+
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--border);
+}
+
+.btn--danger {
+  background: color-mix(in srgb, var(--danger) 28%, var(--surface-2));
+  border-color: color-mix(in srgb, var(--danger) 40%, var(--border));
+}
+
+  
+}
+
+
+
+
+
+
+
+.back-btn {
+  width: fit-content;
+  height: fit-content;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #e5ebf4;
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  svg {
+    font-size: 1.2rem;
+  }
+}

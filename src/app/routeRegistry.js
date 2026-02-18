@@ -791,12 +791,27 @@ export const ROUTES = {
     perm: PERM.COMMISSION_AGENTS_MANAGE,
   },
 
-  COMMISSION_CATALOG_MAP: {
-    key: "COMMISSION_CATALOG_MAP",
-    path: "/app/commission/catalog-mapping",
-    label: "Catalog Mapping",
+  COMMISSION_PRODUCTS: {
+    key: "COMMISSION_PRODUCTS",
+    path: "/app/commission/products",
+    label: "Products",
     scope: "none",
-    perm: PERM.COMMISSION_MANAGE,
+    perm: PERM.COMMISSION_PRODUCTS_VIEW,
+  },
+  COMMISSION_PRODUCTS_CREATE: {
+    key: "COMMISSION_PRODUCTS_CREATE",
+    path: "/app/commission/products/create-new",
+    label: "Create Product",
+    scope: "none",
+    perm: PERM.COMMISSION_PRODUCTS_MANAGE,
+  },
+
+  COMMISSION_PRODUCTS_EDIT: {
+    key: "COMMISSION_PRODUCTS_EDIT",
+    path: "/app/commission/products/:id/edit",
+    label: "Edit Product",
+    scope: "none",
+    perm: PERM.COMMISSION_PRODUCTS_MANAGE,
   },
 
   COMMISSION_RULES: {
@@ -899,7 +914,7 @@ export const SIDEBAR = [
   items: [
     { routeKey: "COMMISSION_OVERVIEW" },
     { routeKey: "COMMISSION_AGENTS" },
-    { routeKey: "COMMISSION_CATALOG_MAP" },
+    { routeKey: "COMMISSION_PRODUCTS" },
     { routeKey: "COMMISSION_RULES" },
     { routeKey: "COMMISSION_ORDERS" },
     { routeKey: "COMMISSION_RECONCILE" },

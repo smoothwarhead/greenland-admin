@@ -15,6 +15,8 @@ export function DataProvider({ children }) {
   const [activeFarmId, setActiveFarmId] = useState(null);
   const [activeStoreId, setActiveStoreId] = useState(null);
 
+  const [pageTitle, setPageTitle] = useState("");
+
   const [farmState, setFarmState] = useState({
     status: "idle",
     data: null,
@@ -32,7 +34,7 @@ export function DataProvider({ children }) {
   
 const [commissionState, setCommissionState] = useState({
   status: "idle",
-  data: null,
+  data: [],
   error: null,
   fromCache: false
 });
@@ -147,7 +149,8 @@ const [commissionState, setCommissionState] = useState({
       setFarmState,
       storeState,
       setStoreState,
-      commissionState, setCommissionState
+      commissionState, setCommissionState,
+      pageTitle, setPageTitle
     }),
     [activeContext, dataHydrated, activeFarmId, activeStoreId, farmState, storeState],
   );

@@ -7,15 +7,14 @@ import { ROUTE_LIST } from "./app/routeList";
 
 import { RequireAccessWithConstraints } from "./app/RequireAccessWithConstraints";
 import { PAGE_COMPONENTS } from "./app/pages";
-import { SelectContextFirstLoad } from "./app/SelectContextFirstLoad";
-import { LoginPage } from "./pages/account/LoginPage";
+// import { SelectContextFirstLoad } from "./app/SelectContextFirstLoad";
+// import { LoginPage } from "./pages/account/LoginPage";
 import FarmSelection from "./pages/farm-selection/FarmSelection";
 import Login from "./pages/account/Login";
 import { IndexRedirect } from "./guards/IndexRedirect";
 import { RequireAuth } from "./guards/RequireAuth";
 import { RequirePendingContext } from "./guards/routeGuards";
 
-RequirePendingContext;
 
 const Fallback = () => (
   <div className="page">
@@ -25,6 +24,8 @@ const Fallback = () => (
     </div>
   </div>
 );
+
+document.documentElement.dataset.theme = "light"; // or "dark"
 
 export default function App() {
   return (

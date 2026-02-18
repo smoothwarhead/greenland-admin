@@ -1,0 +1,20 @@
+.u-muted { color: var(--muted); }
+.u-faint { color: var(--faint); }
+
+.u-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-16);
+  box-shadow: var(--shadow-sm);
+}
+
+.u-row { display: flex; align-items: center; gap: var(--s-12); }
+.u-col { display: flex; flex-direction: column; gap: var(--s-12); }
+
+.u-p-16 { padding: var(--s-16); }
+.u-p-20 { padding: var(--s-20); }
+.u-p-24 { padding: var(--s-24); }
+
+.u-hide-sm {
+  @media (max-width: 640px) { display: none !important; }
+}

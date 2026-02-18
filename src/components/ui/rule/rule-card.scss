@@ -1,0 +1,233 @@
+:root {
+  --ge-green: #4c6c5a;
+  --ge-cream: #ede3c9;
+  --ge-ink: #262626;
+  --ge-white: #fdfdfd;
+  --ge-line: #d8dcd8;
+}
+
+.ruleCard {
+  width: calc(100%/2 - 20px);
+  background: var(--bg);
+  border: 1px solid var(--selected);
+  border-radius: 16px;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--text);
+    transform: translateY(-2px);
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--grey);
+    margin: 10px 0;
+
+  }
+
+  .ruleHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border: 1px solid red;
+
+    .ruleTitle {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .statusPill {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      font-weight: 500;
+
+      &.active {
+        background: rgba(34, 197, 94, 0.15);
+        color: #22c55e;
+      }
+
+      &.inactive {
+        background: rgba(239, 68, 68, 0.15);
+        color: #ef4444;
+      }
+    }
+
+     .ruleSub {
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    color: rgba(38, 38, 38, 0.72);
+    font-weight: 750;
+    font-size: 11px;
+
+    .ruleId {
+      font-weight: 950;
+      color: rgba(76, 108, 90, 0.95);
+    }
+  }
+
+  }
+
+ 
+
+ 
+ 
+
+  .ruleApplies {
+    display: grid;
+    gap: 6px;
+
+    .label {
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(38, 38, 38, 0.8);
+    }
+
+    .value {
+      font-size: 12px;
+      font-weight: 800;
+  
+    }
+  }
+
+  .ruleBlock {
+    background: rgba(237, 227, 201, 0.35);
+    border: 1px solid rgba(76, 108, 90, 0.12);
+    border-radius: 14px;
+    padding: 12px;
+    display: grid;
+    gap: 10px;
+
+    &.bonusBlock {
+      background: rgba(76, 108, 90, 0.08);
+      border-color: rgba(76, 108, 90, 0.18);
+    }
+  }
+
+  .blockTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .blockTitle {
+    font-weight: 950;
+    color: var(--ge-ink);
+    font-size: 13px;
+  }
+
+  .blockValue {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .strong {
+      font-weight: 950;
+      color: var(--ge-ink);
+    }
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 950;
+    font-size: 12px;
+    border: 1px solid rgba(76, 108, 90, 0.18);
+    background: #fff;
+
+    &.percent {
+      color: var(--ge-green);
+      background: rgba(76, 108, 90, 0.10);
+      border-color: rgba(76, 108, 90, 0.25);
+    }
+
+    &.flat {
+      color: #0f766e;
+      background: rgba(15, 118, 110, 0.10);
+      border-color: rgba(15, 118, 110, 0.20);
+    }
+
+    &.bonus {
+      color: #7c3aed;
+      background: rgba(124, 58, 237, 0.10);
+      border-color: rgba(124, 58, 237, 0.20);
+    }
+  }
+
+  .condGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .condPill {
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid rgba(76, 108, 90, 0.14);
+    font-size: 12px;
+    font-weight: 850;
+    color: rgba(38, 38, 38, 0.85);
+
+    .k {
+      font-weight: 950;
+      color: rgba(38, 38, 38, 0.85);
+    }
+
+    &.bonus {
+      border-color: rgba(124, 58, 237, 0.22);
+      background: rgba(124, 58, 237, 0.06);
+    }
+  }
+
+  .muted {
+    color: rgba(38, 38, 38, 0.7);
+    font-weight: 750;
+    font-size: 12px;
+  }
+
+  .mutedSmall {
+    color: rgba(38, 38, 38, 0.75);
+    font-weight: 800;
+    font-size: 12px;
+  }
+
+  .ruleFooter {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    .metaLine {
+      font-size: 12px;
+      font-weight: 850;
+      color: rgba(38, 38, 38, 0.78);
+    }
+
+    .metaKey {
+      font-weight: 950;
+      color: rgba(38, 38, 38, 0.85);
+    }
+  }
+
+  .actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}

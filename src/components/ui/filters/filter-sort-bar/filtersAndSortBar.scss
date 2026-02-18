@@ -1,0 +1,201 @@
+
+.fsWrap {
+  position: relative;
+}
+
+.fsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.fsChipSlot {
+  position: relative;
+}
+
+.fsChip {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px;
+  // border-radius: 999px;
+  // border: 1px solid rgba(76, 108, 90, 0.18);
+  // background: var(--sidebar-muted);
+  color: var(--text);
+  cursor: pointer;
+
+  transition: transform 160ms ease, background 160ms ease, color 160ms ease,
+    box-shadow 160ms ease, border-color 160ms ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.10);
+  }
+
+  &:active {
+    transform: translateY(0px) scale(0.98);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(76, 108, 90, 0.28);
+    outline-offset: 3px;
+  }
+
+  &.is-active {
+    background: var(--primary);
+    color: var(--bg);
+    border-color: rgba(76, 108, 90, 0.55);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.14);
+  }
+
+
+}
+
+.fsChip__icon {
+  font-size: 18px;
+  opacity: 0.95;
+}
+
+.fsChip__label {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.fsChip__caret {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.fsPanel {
+  position: absolute;
+  top: calc(100% + 10px);
+  z-index: 30;
+
+  min-width: 320px;
+  max-width: min(420px, 92vw);
+
+  padding: 14px;
+  border-radius: 16px;
+
+  background: linear-gradient(180deg, var(--bg), #fff);
+  border: 1px solid rgba(76, 108, 90, 0.18);
+  box-shadow: 0 20px 52px rgba(0, 0, 0, 0.16);
+
+  /* subtle “warm” tint like your admin */
+  outline: 1px solid rgba(237, 227, 201, 0.55);
+
+  /* default position */
+  left: 0;
+}
+
+/* ✅ auto alignment classes */
+.fsPanel.is-left {
+  left: 0;
+  right: auto;
+}
+
+.fsPanel.is-right {
+  right: 0;
+  left: auto;
+}
+
+.fsPanel__title {
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.fsPanel__hint {
+  margin-top: 10px;
+  font-size: 12px;
+  color: rgba(83, 82, 81, 0.80);
+}
+
+.fsInput {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  background: var(--accent);
+  border: 1px solid rgba(76, 108, 90, 0.16);
+  color: var(--text);
+  outline: none;
+
+  &::placeholder {
+    color: rgba(83, 82, 81, 0.70);
+  }
+
+  &:focus {
+    border-color: rgba(76, 108, 90, 0.55);
+    box-shadow: 0 0 0 3px rgba(76, 108, 90, 0.18);
+  }
+}
+
+.fsList {
+  display: grid;
+  gap: 10px;
+  padding: 6px 2px 2px;
+}
+
+.fsCheck {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  color: rgba(38, 38, 38, 0.88);
+
+  input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary);
+  }
+}
+
+.fsEmpty {
+  font-size: 13px;
+  color: rgba(83, 82, 81, 0.80);
+}
+
+.fsClear {
+  margin-left: 6px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(76, 108, 90, 0.18);
+
+  background: var(--accent);
+  color: var(--text);
+  cursor: pointer;
+
+  transition: transform 160ms ease, opacity 160ms ease, box-shadow 160ms ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.fsCount {
+  margin-left: auto;
+  font-size: 13px;
+  color: rgba(83, 82, 81, 0.85);
+}
+
+@media (max-width: 720px) {
+  .fsCount {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .fsPanel {
+    min-width: 280px;
+  }
+}

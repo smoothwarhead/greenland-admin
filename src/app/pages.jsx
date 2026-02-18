@@ -12,6 +12,10 @@ const InventoryItemsPage = makeLazy(() => import("../pages/inventory/InventoryIt
 const CommissionOverviewPage = makeLazy(() => import("../pages/commission/overview/CommissionOverview.jsx"));
 const Payouts = makeLazy(() => import("../pages/commission/payouts/Payouts.jsx"));
 const Agents = makeLazy(() => import("../pages/commission/agents/Agents.jsx"));
+const Products = makeLazy(() => import("../pages/commission/products/Products.jsx"));
+const CreateProduct = makeLazy(() => import("../pages/commission/products/create-products/CreateProduct.jsx"));
+const EditProduct = makeLazy(() => import("../pages/commission/products/edit-product/EditProduct.jsx"));
+const rules = makeLazy(() => import("../pages/commission/rules/Rules.jsx"));
 
   // COMMISSION_OVERVIEW: React.lazy(() => import("./pages/commission/CommissionOverview")),
   // COMMISSION_AGENTS: React.lazy(() => import("./pages/commission/AgentsList")),
@@ -55,6 +59,10 @@ export const PAGE_COMPONENTS = Object.fromEntries(
     if (r.key === "COMMISSION_OVERVIEW") return [r.key, CommissionOverviewPage];
     if (r.key === "COMMISSION_AGENTS") return [r.key, Agents];
     if (r.key === "COMMISSION_PAYOUTS") return [r.key, Payouts];
+    if (r.key === "COMMISSION_PRODUCTS") return [r.key, Products];
+    if (r.key === "COMMISSION_PRODUCTS_CREATE") return [r.key, CreateProduct];
+    if (r.key === "COMMISSION_PRODUCTS_EDIT") return [r.key, EditProduct];
+    if (r.key === "COMMISSION_RULES") return [r.key, rules];
 
 
     const Comp = () => <Stub title={r.label} />;

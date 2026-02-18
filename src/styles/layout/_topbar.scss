@@ -1,0 +1,25 @@
+.topbar {
+  grid-area: topbar;
+  position: sticky;
+  top: 0;
+  height: var(--topbar-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--s-20);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  z-index: var(--z-topbar);
+}
+
+.topbar__title {
+  font-size: var(--fs-18);
+  font-weight: var(--fw-600);
+}
+
+.topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s-10);
+}

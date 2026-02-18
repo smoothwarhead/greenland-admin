@@ -1,49 +1,6 @@
-.pageHeader {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 14px;
 
-  .titleBlock {
-    .pageTitle {
-      font-size: 22px;
-      font-weight: 750;
-      letter-spacing: -0.02em;
-    }
-    .pageSubtitle {
-      margin-top: 4px;
-      color: rgba(0, 0, 0, 0.6);
-      font-size: 13px;
-    }
-  }
 
-  .headerActions {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-}
 
-.btn {
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 12px;
-  padding: 10px 12px;
-  font-weight: 650;
-  cursor: pointer;
-  background: white;
-
-  &.btn--primary {
-    border-color: rgba(0, 0, 0, 0.14);
-    background: rgba(0, 0, 0, 0.92);
-    color: white;
-  }
-
-  &.btn--ghost {
-    background: white;
-  }
-}
 
 .filtersCard {
   background: white;

@@ -1,0 +1,20 @@
+.toastStack {
+  position: fixed;
+  right: var(--s-16);
+  bottom: var(--s-16);
+  display: grid;
+  gap: var(--s-10);
+  z-index: var(--z-toast);
+}
+
+.toast {
+  width: min(420px, calc(100vw - 32px));
+  border-radius: var(--r-16);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+  padding: var(--s-12) var(--s-14);
+}
+
+.toast__title { font-weight: var(--fw-700); }
+.toast__msg { margin-top: var(--s-6); color: var(--muted); font-size: var(--fs-13); }

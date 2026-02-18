@@ -1,15 +1,37 @@
-// import {
-//   W_EggsToday, W_MortalityAlert, W_FeedVariance,
-//   W_CropCycles, W_HarvestForecast,
-//   W_InventoryLowStock, W_InventoryMovements,
-//   W_SalesPipeline, W_PnLMonth, W_ExpenseBreakdown,
-//   W_StaffAttendance, W_MaintenanceDue, W_FuelBurn,
-//   W_MultiFarmOverview, W_AdminAlerts
-// } from "../api/widgets";
-// import { PERMS } from "../auth/perms";
-// import { ROLES } from "../auth/roles";
+import { MdOutlineFilterList, MdOutlineCategory } from "react-icons/md";
+import { FaSortAlphaDown, FaSortAlphaDownAlt } from "react-icons/fa";
+import { BiAtom } from "react-icons/bi";
+import { TbMoneybag } from "react-icons/tb";
+import { HiStatusOnline } from "react-icons/hi";
+import { IoSearch } from "react-icons/io5";
+import { TbCrown } from "react-icons/tb";
+
 
 import { farmSelectData } from "../pages/farm-selection/farm-select-data";
+
+
+const CATEGORIES = [
+  { value: "CROPS", label: "Crops" },
+  { value: "PROCESSED", label: "Processed" },
+  { value: "POULTRY_INPUTS", label: "Poultry Inputs" },
+  { value: "POULTRY_OUTPUTS", label: "Poultry Outputs" },
+  { value: "INPUTS", label: "Inputs" },
+];
+
+const UNITS = [
+  "KG",
+  "TUBER",
+  "BUNCH",
+  "LITER",
+  "STICK",
+  "BIRD",
+  "CRATE",
+  "BAG",
+];
+
+
+
+
 
 export const loginData = [
   {
@@ -79,180 +101,7 @@ export const USERS = [
   },
 ];
 
-// const DEMO_USERS = [
-//   {
-//     id: "u-super",
-//     name: "Super Admin",
-//     role: "SUPER_ADMIN",
-//     scopes: {
-//       farms: ["prime-estate", "golden-farm", "atlas-farm"],
-//       stores: ["store-odeda", "store-abeokuta", "store-lagos"],
-//     },
-//   },
-//   {
-//     id: "u-farm-admin-prime",
-//     name: "Prime Estate Farm Admin",
-//     role: "FARM_ADMIN",
-//     scopes: { farms: ["prime-estate"], stores: [] },
-//   },
-//   {
-//     id: "u-poultry-golden",
-//     name: "Golden Poultry Manager",
-//     role: "POULTRY_MANAGER",
-//     scopes: { farms: ["golden-farm"], stores: [] },
-//   },
-//   {
-//     id: "u-cashier-odeda",
-//     name: "Odeda Cashier",
-//     role: "CASHIER",
-//     scopes: { farms: [], stores: ["store-odeda"] },
-//   },
-//   {
-//     id: "u-store-mgr-lagos",
-//     name: "Lagos Store Manager",
-//     role: "STORE_MANAGER",
-//     scopes: { farms: [], stores: ["store-lagos"] },
-//   },
-//   {
-//     id: "u-auditor",
-//     name: "Auditor",
-//     role: "AUDITOR",
-//     scopes: {
-//       farms: ["prime-estate", "golden-farm", "atlas-farm"],
-//       stores: ["store-odeda", "store-abeokuta", "store-lagos"],
-//     },
-//   },
-// ];
 
-// export const DASHBOARDS = {
-
-//   SUPER_ADMIN: {
-//     title: "Super Admin Dashboard",
-//     grid: 3,
-//     sections: [
-//       { key: "overview", title: "Enterprise Overview", widgets: [
-//         { component: W_MultiFarmOverview, perms: [PERMS.FARM_READ_ANY]},
-//         { component: W_AdminAlerts, perms: [PERMS.ADMIN_MANAGE_ANY] },
-//         { component: W_PnLMonth, perms: [PERMS.FINANCE_READ_ANY]}
-//       ]},
-//       { key: "ops", title: "Operations", widgets: [
-//         { component: W_EggsToday, perms: [PERMS.POULTRY_READ_ANY] },
-//         { component: W_MortalityAlert, perms: [PERMS.POULTRY_READ_ANY] },
-//         { component: W_InventoryLowStock, perms: [PERMS.INVENTORY_READ_ANY]}
-//       ]}
-//     ]
-//   },
-
-//   FARM_MANAGER: {
-//     title: "Farm Manager Dashboard",
-//     grid: 3,
-//     sections: [
-//       { key: "today", title: "Today", widgets: [
-//         { component: W_EggsToday, perms: [PERMS.POULTRY_READ_OWN ]},
-//         { component: W_StaffAttendance, perms: [PERMS.STAFF_READ_OWN] },
-//         { component: W_InventoryMovements, perms: [PERMS.INVENTORY_READ_OWN] }
-//       ]},
-//       { key: "production", title: "Production Control", widgets: [
-//         { component: W_MortalityAlert, perms: [PERMS.POULTRY_READ_OWN]},
-//         { component: W_FeedVariance, perms: [PERMS.POULTRY_READ_OWN]},
-//         { component: W_CropCycles, perms: [PERMS.CROPS_READ_OWN] }
-//       ]},
-//       { key: "finance", title: "Finance Snapshot", widgets: [
-//         { component: W_PnLMonth, perms: [PERMS.FINANCE_READ_OWN] },
-//         { component: W_ExpenseBreakdown, perms: [PERMS.FINANCE_READ_OWN]  },
-//         { component: W_SalesPipeline, perms: [PERMS.SALES_READ_OWN]   }
-//       ]}
-//     ]
-//   },
-
-//   POULTRY_SUPERVISOR: {
-//     title: "Poultry Dashboard",
-//     grid: 3,
-//     sections: [
-//       { key: "production", title: "Egg Production", widgets: [
-//         { component: W_EggsToday, perms: [PERMS.POULTRY_READ_OWN ] },
-//         { component: W_FeedVariance, perms: [PERMS.POULTRY_READ_OWN ] },
-//         { component: W_MortalityAlert, perms: [PERMS.POULTRY_READ_OWN ] }
-//       ]},
-//       { key: "stock", title: "Feed & Stock Visibility", widgets: [
-//         { component: W_InventoryLowStock, perms: [PERMS.INVENTORY_READ_OWN] },
-//         { component: W_InventoryMovements, perms: [PERMS.INVENTORY_READ_OWN] }
-//       ]}
-//     ]
-//   },
-
-//   VET_TECH: {
-//     title: "Vet & Health Dashboard",
-//     grid: 3,
-//     sections: [
-//       { key: "alerts", title: "Health Alerts", widgets: [
-//         { component: W_MortalityAlert, perms: [PERMS.POULTRY_READ_OWN ]},
-//         { component: W_EggsToday, perms: [PERMS.POULTRY_READ_OWN ]}
-//       ]}
-//       // Add vaccination due widget later (from health schedule table)
-//     ]
-//   },
-
-//   CROP_SUPERVISOR: {
-//     title: "Crops Dashboard",
-//     grid: 3,
-//     sections: [
-//       { key: "cycles", title: "Crop Cycles", widgets: [
-//         { component: W_CropCycles, perms: [PERMS.CROPS_READ_OWN] },
-//         { component: W_HarvestForecast, perms: [PERMS.CROPS_READ_OWN] },
-//         { component: W_InventoryLowStock, perms: [PERMS.INVENTORY_READ_OWN] }
-//       ]}
-//     ]
-//   },
-
-//   STOREKEEPER: {
-//     title: "Store Dashboard",
-//     grid: 3,
-//     sections: [
-//       { key: "stock", title: "Stock Control", widgets: [
-//         { component: W_InventoryLowStock, perms: [PERMS.INVENTORY_READ_OWN] },
-//         { component: W_InventoryMovements, perms: [PERMS.INVENTORY_READ_OWN]  }
-//       ]}
-//     ]
-//   },
-
-//   SALES_OFFICER: {
-//     title: "Sales Dashboard",
-//     grid: 3,
-//     sections: [
-//       { key: "pipeline", title: "Sales Pipeline", widgets: [
-//         { component: W_SalesPipeline, perms: [PERMS.SALES_READ_OWN] },
-//         { component: W_InventoryLowStock, perms: [PERMS.INVENTORY_READ_OWN]  }
-//       ]}
-//     ]
-//   },
-
-//   FINANCE: {
-//     title: "Finance Dashboard",
-//     grid: 3,
-//     sections: [
-//       { key: "pnl", title: "Performance", widgets: [
-//         { component: W_PnLMonth, perms: [PERMS.FINANCE_READ_OWN] },
-//         { component: W_ExpenseBreakdown, perms: [PERMS.FINANCE_READ_OWN]  }
-//       ]},
-//       { key: "sales", title: "Sales Visibility", widgets: [
-//         { component: W_SalesPipeline, perms: [PERMS.SALES_READ_OWN] }
-//       ]}
-//     ]
-//   },
-
-//   ASSET_TECH: {
-//     title: "Assets Dashboard",
-//     grid: 3,
-//     sections: [
-//       { key: "maintenance", title: "Maintenance", widgets: [
-//         { component: W_MaintenanceDue, perms: [PERMS.ASSETS_READ_OWN] },
-//         { component: W_FuelBurn, perms: [PERMS.ASSETS_READ_OWN] }
-//       ]}
-//     ]
-//   }
-
-// };
 
 // export function pickDashboardRole(roles = []) {
 
@@ -310,3 +159,137 @@ export const USERS = [
 //     return "Auditor"
 //   }
 // }
+
+export const AGENT_FILTER_GROUPS = [
+
+  { id: 1, label: "Search", icon: IoSearch,
+    tag: "search" },
+  { id: 2, label: "Status", icon: HiStatusOnline, 
+    tag: "status" },
+  { id: 3, label: "Tier", icon: TbCrown, tag: "tier" },
+  
+
+];
+
+export const agentFilterOptions = {
+
+  statuses: [
+    { value: "ACTIVE", label: "Active" },
+    { value: "INACTIVE", label: "Inactive" },
+  ],
+  tiers: [
+    { value: "BRONZE", label: "Bronze" },
+    { value: "SILVER", label: "Silver" },
+    { value: "GOLD", label: "Gold" },
+  ],
+};
+
+export const filtersAndSort = [
+  {
+    id: 1,
+    label: "Search",
+    icon: IoSearch,
+    tag: "search"
+  },
+  {
+    id: 2,
+    label: "Status",
+    icon: HiStatusOnline,
+    tag: "status"
+  },
+  {
+    id: 3,
+    label: "Category",
+    icon: MdOutlineCategory,
+    tag: "category"
+  },
+  {
+    id: 4,
+    label: "Commission Type",
+    icon: TbMoneybag,
+    tag: "commissionType"
+  },
+  {
+    id: 5,
+    label: "A to Z",
+    icon: FaSortAlphaDown,
+    tag: "aToZ"
+  },
+  {
+    id: 6,
+    label: "Z to A",
+    icon: FaSortAlphaDownAlt,
+    tag: "zToA"
+  },
+
+]
+
+export const filterOptions = {
+  categories: [
+    { value: "CROPS", label: "Crops" },
+    { value: "PROCESSED", label: "Processed" },
+    { value: "POULTRY_INPUTS", label: "Poultry Inputs" },
+    { value: "POULTRY_OUTPUTS", label: "Poultry Outputs" },
+    { value: "INPUTS", label: "Inputs" },
+  ],
+  statuses: [
+    { value: "ACTIVE", label: "Active" },
+    { value: "INACTIVE", label: "Inactive" },
+  ],
+  commissionTypes: [
+    { value: "FLAT", label: "Flat" },
+    { value: "PERCENT", label: "Percent" }, // will match PERCENT_BANDED via normalization
+  ],
+};
+
+
+export const createProductData = [
+  {
+    name: "productName",
+    placeholder: "e.g., Tomatoes",
+    label: "Product Name *",
+    isPassword: false,
+    errorMessage: "Product name is required",
+    validate: true,
+    hint: "Used for display and sorting."
+  },
+  {
+    name: "sku",
+    placeholder: "COMM-TOMATOES",
+    label: "SKU *",
+    isPassword: false,
+    errorMessage: "SKU is required",
+    validate: true,
+    hint: "Format: COMM-XXXXX. Keep it unique."
+  },
+  {
+    name: "category",
+    placeholder: "Crops",
+    label: "Category *",
+    isPassword: false,
+    errorMessage: "Category is required",
+    validate: true,
+    hint: "",
+    options: CATEGORIES
+  },
+  {
+    name: "unit",
+    placeholder: "Crops",
+    label: "Unit *",
+    isPassword: false,
+    errorMessage: "Unit is required",
+    validate: true,
+    hint: "",
+    options: UNITS
+  },
+  {
+    name: "flatAmout",
+    placeholder: "e.g., 50",
+    label: "Flat Amount (NGN) *",
+    isPassword: false,
+    errorMessage: "Flat amount is required",
+    validate: true,
+    hint: "Commission paid per unit sold.",
+    
+  },
+]

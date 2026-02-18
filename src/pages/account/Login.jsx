@@ -5,8 +5,16 @@ import { useAuth } from "../../context/AuthContext";
 import { useData } from "../../context/DataContext";
 import { FARMS, STORES } from "../../app/orgMap";
 import { getPendingContext, clearPendingContext, popPendingContext } from "../../app/ContextSession";
-import BackButton from "../../components/ui/buttons/back-btn/BackButton";
+// import BackButton from "../../components/ui/buttons/back-btn/BackButton";
 import { buildTo } from "../../app/routeRegistry";
+import {Button, ButtonWithLefttIcon} from "../../components/ui/buttons/Buttons";
+import { HiArrowLongLeft } from "react-icons/hi2";
+
+
+
+
+
+
 
 const Login = () => {
   const { demoUsers, login } = useAuth();
@@ -64,7 +72,12 @@ const Login = () => {
     <div className="login-page">
       <div className="login-header">
         {/* ✅ go back to select-context explicitly, not "/" */}
-        <BackButton action={() => nav("/select-context")} />
+        <ButtonWithLefttIcon
+           action={() => nav("/select-context")} 
+           variant=""
+           text="Back"
+           icon={<HiArrowLongLeft />}
+          />
       </div>
 
       <div className="field">
@@ -100,9 +113,14 @@ const Login = () => {
             </div>
           </div>
 
-          <button className="login-btn" type="submit" style={{ fontWeight: 800 }}>
+          {/* <button className="login-btn" type="submit" style={{ fontWeight: 800 }}>
             Login
-          </button>
+          </button> */}
+          <Button 
+            text="Login"
+            action={onSubmit}
+            variant="primary"
+          />
         </form>
       </div>
     </div>

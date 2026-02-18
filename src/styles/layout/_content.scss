@@ -1,0 +1,33 @@
+.content {
+  grid-area: content;
+  padding: var(--s-24);
+}
+
+.content__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s-16);
+  margin-bottom: var(--s-16);
+}
+
+.pageHeader__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-6);
+}
+
+.pageHeader__title {
+  font-size: var(--fs-24);
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-700);
+}
+
+.pageHeader__subtitle {
+  color: var(--muted);
+}

@@ -5,10 +5,10 @@
     position: sticky;
     top: 0;
     z-index: 10;
-    background: rgba(255, 255, 255, 0.86);
+    background: transparent;
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid #b7c1d5;
-    padding: var(--padding);
+    border-bottom: 1px solid var(--surface-2);
+    padding: var(--r-16);
     // display: grid;
     // grid-template-columns: 1.2fr 1fr 1.2fr;
     // gap: 12px;
@@ -30,11 +30,30 @@
 
 
             .tbControls {
-                width: 50%;
+                width: 60%;
                 display: flex;
                 justify-content: space-between;
                 align-items: end;
                 flex-wrap: wrap;
+    
+
+                .page-title {
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    color: var(--primary);
+                    // color: var(--text);
+                }
+
+                .tb-btns{
+                    display: flex;
+                    gap: 50px;
+                    color: #B03D1E;
+
+                    span{
+                        font-size: 0.8rem;
+                        font-weight: 600;
+                    }
+                }
 
 
                 .tbFields {
@@ -67,8 +86,8 @@
                     width: 40px;
                     height: 40px;
                     border-radius: 50%;
-                    background: #afc5f7;
-                    color: #778fc8;
+                    background: #EBF6EB;
+                    color: var(--primary);
                     display: grid;
                     place-items: center;
                     font-weight: 600;

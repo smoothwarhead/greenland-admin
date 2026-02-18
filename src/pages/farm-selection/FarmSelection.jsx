@@ -10,6 +10,7 @@ import { MdArrowRight } from "react-icons/md";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { FaStore } from "react-icons/fa6";
 import { useData } from "../../context/DataContext";
+import {Button} from "../../components/ui/buttons/Buttons";
 
 const FarmSelection = () => {
   const nav = useNavigate();
@@ -45,13 +46,21 @@ const FarmSelection = () => {
         <div className="farm-select-grid">
           <div className="farm-select-grid-btns">
             {farmSelectData.map((f, index) => (
-              <div
-                className={`farm-select-btn ${openIndex === index ? "selected" : ""}`}
+
+              <Button 
                 key={index}
-                onClick={() => setOpenIndex(index)}
-              >
-                {f.group}
-              </div>
+                action={() => setOpenIndex(index)}
+                variant={`${openIndex === index ? "selected" : ""}`}
+                text={f.group}
+
+              />
+              // <div
+              //   className={`farm-select-btn ${openIndex === index ? "selected" : ""}`}
+              //   key={index}
+              //   onClick={() => setOpenIndex(index)}
+              // >
+              //   {f.group}
+              // </div>
             ))}
           </div>
 

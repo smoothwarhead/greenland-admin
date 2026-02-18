@@ -1,0 +1,24 @@
+.tabs {
+  display: flex;
+  gap: var(--s-8);
+  padding: var(--s-6);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-16);
+}
+
+.tab {
+  padding: 10px 12px;
+  border-radius: var(--r-12);
+  color: var(--muted);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.tab:hover { background: var(--surface-2); color: var(--text); }
+
+.tab.isActive {
+  background: color-mix(in srgb, var(--primary) 16%, var(--surface));
+  border-color: color-mix(in srgb, var(--primary) 28%, var(--border));
+  color: var(--text);
+}

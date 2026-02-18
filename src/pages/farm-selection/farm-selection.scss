@@ -67,26 +67,26 @@
                 justify-content: space-between;
 
 
-                .farm-select-btn {
-                    width: fit-content;
-                    height: fit-content;
-                    padding: 0.6rem 2rem;
-                    background: var(--muted);
-                    border-radius: 1rem;
-                    font-weight: 500;
-                    transition: all ease-in-out 0.6s;
-                    cursor: pointer;
+                // .farm-select-btn {
+                //     width: fit-content;
+                //     height: fit-content;
+                //     padding: 0.6rem 2rem;
+                //     background: var(--muted);
+                //     border-radius: 1rem;
+                //     font-weight: 500;
+                //     transition: all ease-in-out 0.6s;
+                //     cursor: pointer;
 
-                    &:hover {
-                        background: var(--btn-hover);
-                    }
+                //     &:hover {
+                //         background: var(--btn-hover);
+                //     }
 
-                    &.selected {
-                        background: var(--btn-hover);
+                //     &.selected {
+                //         background: var(--btn-hover);
 
-                    }
+                //     }
 
-                }
+                // }
 
 
 
@@ -118,7 +118,7 @@
                     font-weight: 500;
 
                     &:hover {
-                        background: rgb(114, 170, 215);
+                        background: var(--selected);
 
                     }
 

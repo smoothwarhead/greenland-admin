@@ -57,10 +57,10 @@ export function Topbar() {
   const nav = useNavigate();
   const loc = useLocation();
 
-  const { user, inFarmScope, inStoreScope, activeFarmId, activeStoreId } =
+  const { user, inFarmScope, inStoreScope } =
     useAuth();
 
-  const { farmState, storeState } = useData();
+  // const { pageTitle } = useData();
 
   const routeInfo = useMemo(
     () => findRouteByPathname(loc.pathname),
@@ -109,8 +109,17 @@ export function Topbar() {
         <div className="tb-top">
           {/* Right: user + context switchers */}
           <div className="tbRight">
+
             <div className="tbControls">
-              <div className="tbFields">
+
+              <div className="page-title">{pageTitle}</div>
+
+              <div className="tb-btns">
+                <span>Select Farms</span>
+                {hasAnyStoreScope ? <span>Select Stores</span> : null}
+              </div>
+
+              {/* <div className="tbFields">
                 <ContextSelect
                   label="Farm"
                   value={activeFarmId}
@@ -123,24 +132,6 @@ export function Topbar() {
                 />
               </div>
 
-              {/* <div className="tbField">
-                <label>Farm</label>
-                <select
-                  value={activeFarmId || ""}
-                  onChange={(e) => {
-                    const id = e.target.value || null;
-                    if (!id) return;
-                    requestSwitch({ type: "farm", id });
-                  }}
-                >
-                  <option value="">(none)</option>
-                  {accessibleFarms.map((f) => (
-                    <option key={f.id} value={f.id}>
-                      {f.name}
-                    </option>
-                  ))}
-                </select>
-              </div> */}
 
               {hasAnyStoreScope ? (
                 <div className="tbFields">
@@ -155,7 +146,7 @@ export function Topbar() {
                     onSelect={(id) => requestSwitch({ type: "store", id })}
                   />
                 </div>
-              ) : null}
+              ) : null} */}
             </div>
 
             <div className="tbUser">
@@ -182,20 +173,7 @@ export function Topbar() {
           ) : null}
         </div> */}
       </header>
-      <div className="sub-header">
-        {/* Left: page title + breadcrumbs */}
-        <div className="tbLeft">         
-          <div className="tbCrumbs">
-            <Breadcrumbs />
-          </div>
-
-           {/* <div className="tbTitleRow">
-            <div className="tbTitle">{pageTitle}</div>
-          </div> */}
-        </div>
-      </div>
-
-      {ReAuthModal}
+   
     </>
   );
 }

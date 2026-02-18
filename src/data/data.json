@@ -7,6 +7,8 @@
     "timezone": "Africa/Lagos"
   },
 
+  
+
   "org": {
     "farms": [
       {
@@ -30,7 +32,7 @@
         "capabilities": {
           "hatchery": false,
           "layers": true,
-          "broilers": false,
+          "broilers": true,
           "breeders": false,
           "feedMill": false,
           "fertilizer": false,
@@ -529,7 +531,7 @@
             {
               "transferNo": "TRF-PRI-104",
               "fromFarmId": "prime-estate",
-              "toStoreId": "store-abeokuta",
+              "toStoreId": "store-oluyole",
               "createdAt": "2026-01-10T07:10:00.000Z",
               "ageHrs": 5,
               "slaHours": 18,
@@ -554,7 +556,7 @@
             {
               "transferNo": "TRF-PRI-105",
               "fromFarmId": "prime-estate",
-              "toStoreId": "store-odeda",
+              "toStoreId": "store-ojoo",
               "createdAt": "2026-01-10T02:10:00.000Z",
               "ageHrs": 10,
               "slaHours": 18,
@@ -1508,14 +1510,14 @@
           "shift": {
             "shiftId": "SHIFT-OD-2026-01-10-AM",
             "openedAt": "2026-01-10T08:05:00.000Z",
-            "openedBy": "u-odeda-cashier",
+            "openedBy": "u-ojoo-cashier",
             "float": 50000
           },
           "transactions": [
             {
               "txnId": "TXN-OD-10492",
               "time": "2026-01-10T10:14:00.000Z",
-              "cashierId": "u-odeda-cashier",
+              "cashierId": "u-ojoo-cashier",
               "lines": [
                 { "sku": "EGG-CRATE-30", "qty": 1, "price": 1500 },
                 { "sku": "PEP-KG", "qty": 2, "price": 1200 }
@@ -1526,7 +1528,7 @@
             {
               "txnId": "TXN-OD-10493",
               "time": "2026-01-10T11:02:00.000Z",
-              "cashierId": "u-odeda-cashier",
+              "cashierId": "u-ojoo-cashier",
               "lines": [{ "sku": "BRL-WHOLE-1", "qty": 1, "price": 10000 }],
               "total": 10000,
               "payment": { "method": "transfer", "amount": 10000 }
@@ -1537,7 +1539,7 @@
               "returnId": "RET-OD-301",
               "txnId": "TXN-OD-10492",
               "reason": "damaged egg crate",
-              "approvedBy": "u-odeda-manager",
+              "approvedBy": "u-ojoo-manager",
               "amount": 500
             }
           ],
@@ -1573,6 +1575,7 @@
       },
 
       "store-Ogunpa": {
+
         "kpis": {
           "lastSyncAt": "2026-01-10T12:25:00.000Z",
           "salesToday": 256000,
@@ -1636,14 +1639,14 @@
           "shift": {
             "shiftId": "SHIFT-AB-2026-01-10-AM",
             "openedAt": "2026-01-10T08:10:00.000Z",
-            "openedBy": "u-odeda-manager",
+            "openedBy": "u-ogunpa-manager",
             "float": 70000
           },
           "transactions": [
             {
               "txnId": "TXN-AB-8801",
               "time": "2026-01-10T10:40:00.000Z",
-              "cashierId": "u-odeda-manager",
+              "cashierId": "u-ogunpa-manager",
               "lines": [{ "sku": "EGG-CRATE-30", "qty": 2, "price": 1500 }],
               "total": 3000,
               "payment": { "method": "cash", "amount": 3000 }
@@ -1785,7 +1788,7 @@
       "TRF-PRI-104": {
         "transferNo": "TRF-PRI-104",
         "fromFarmId": "prime-estate",
-        "toStoreId": "store-abeokuta",
+        "toStoreId": "store-oluyole",
         "status": "in_transit",
         "createdAt": "2026-01-10T07:10:00.000Z",
         "slaHours": 18,
@@ -1811,7 +1814,7 @@
       "TRF-PRI-105": {
         "transferNo": "TRF-PRI-105",
         "fromFarmId": "prime-estate",
-        "toStoreId": "store-odeda",
+        "toStoreId": "store-ojoo",
         "status": "in_transit",
         "createdAt": "2026-01-10T02:10:00.000Z",
         "slaHours": 18,
@@ -1838,7 +1841,7 @@
       "TRF-GOL-201": {
         "transferNo": "TRF-GOL-201",
         "fromFarmId": "golden-farm",
-        "toStoreId": "store-abeokuta",
+        "toStoreId": "store-sango",
         "status": "in_transit",
         "createdAt": "2026-01-10T05:20:00.000Z",
         "slaHours": 18,
@@ -1859,7 +1862,7 @@
       "TRF-ATL-301": {
         "transferNo": "TRF-ATL-301",
         "fromFarmId": "atlas-farm",
-        "toStoreId": "store-odeda",
+        "toStoreId": "store-alesh",
         "status": "in_transit",
         "createdAt": "2026-01-09T20:30:00.000Z",
         "slaHours": 18,
@@ -1888,30 +1891,452 @@
         "type": "FIELD_AGENT",
         "status": "ACTIVE",
         "phone": "+2348012345678",
+        "email": "oluwaseun@greenland.ng",
+        "tier": "SILVER",
+        "tierMonth": "2026-02",
+        "tierMetrics": {
+          "monthlyNet": 420000,
+          "monthlyOrders": 11,
+          "distinctProducts": 4,
+          "onTimeCloseRate": 0.72
+        },
+        "channels": ["WHATSAPP", "REFERRALS"],
         "bank": {
           "name": "GTBank",
           "accountName": "Oluwaseun A",
           "accountNumber": "0123456789"
         },
-        "channels": ["WHATSAPP", "REFERRALS"],
-        "assignedStores": ["store-ibadan-01", "store-ibadan-02"],
-        "createdAt": "2026-01-05T09:10:00.000Z"
+        "createdAt": "2026-01-05T09:10:00.000Z",
+        "lastActiveAt": "2026-02-10T16:22:00.000Z"
+      },
+      {
+        "id": "ag-002",
+        "name": "Kehinde M.",
+        "type": "STORE_AGENT",
+        "status": "ACTIVE",
+        "phone": "+2348031122334",
+        "email": "kehinde@greenland.ng",
+        "tier": "BRONZE",
+        "tierMonth": "2026-02",
+        "tierMetrics": {
+          "monthlyNet": 98000,
+          "monthlyOrders": 4,
+          "distinctProducts": 2,
+          "onTimeCloseRate": 0.55
+        },
+        "channels": ["DIRECT", "WHATSAPP"],
+        "bank": {
+          "name": "Access Bank",
+          "accountName": "Kehinde M",
+          "accountNumber": "2211334455"
+        },
+        "createdAt": "2026-01-14T10:35:00.000Z",
+        "lastActiveAt": "2026-02-09T11:10:00.000Z"
+      },
+      {
+        "id": "ag-003",
+        "name": "Aminat O.",
+        "type": "FIELD_AGENT",
+        "status": "ACTIVE",
+        "phone": "+2348109988776",
+        "email": "aminat@greenland.ng",
+        "tier": "GOLD",
+        "tierMonth": "2026-02",
+        "tierMetrics": {
+          "monthlyNet": 1250000,
+          "monthlyOrders": 19,
+          "distinctProducts": 7,
+          "onTimeCloseRate": 0.84
+        },
+        "channels": ["WHATSAPP", "REFERRALS", "DIRECT"],
+        "bank": {
+          "name": "UBA",
+          "accountName": "Aminat O",
+          "accountNumber": "0033445566"
+        },
+        "createdAt": "2026-01-02T08:05:00.000Z",
+        "lastActiveAt": "2026-02-11T09:01:00.000Z"
+      },
+      {
+        "id": "ag-004",
+        "name": "Tunde S.",
+        "type": "FIELD_AGENT",
+        "status": "INACTIVE",
+        "phone": "+2348094455667",
+        "email": "tunde@greenland.ng",
+        "tier": "BRONZE",
+        "tierMonth": "2026-02",
+        "tierMetrics": {
+          "monthlyNet": 0,
+          "monthlyOrders": 0,
+          "distinctProducts": 0,
+          "onTimeCloseRate": 0
+        },
+        "channels": ["REFERRALS"],
+        "bank": {
+          "name": "First Bank",
+          "accountName": "Tunde S",
+          "accountNumber": "5566778899"
+        },
+        "createdAt": "2026-01-20T13:20:00.000Z",
+        "lastActiveAt": "2026-01-23T12:00:00.000Z"
+      },
+      {
+        "id": "ag-005",
+        "name": "Bisi A.",
+        "type": "FIELD_AGENT",
+        "status": "ACTIVE",
+        "phone": "+2348023344556",
+        "email": "bisi@greenland.ng",
+        "tier": "SILVER",
+        "tierMonth": "2026-02",
+        "tierMetrics": {
+          "monthlyNet": 610000,
+          "monthlyOrders": 14,
+          "distinctProducts": 5,
+          "onTimeCloseRate": 0.78
+        },
+        "channels": ["WHATSAPP", "DIRECT"],
+        "bank": {
+          "name": "Zenith Bank",
+          "accountName": "Bisi A",
+          "accountNumber": "7788990011"
+        },
+        "createdAt": "2026-01-08T15:10:00.000Z",
+        "lastActiveAt": "2026-02-10T18:42:00.000Z"
       }
     ],
+
     "rules": [
       {
-        "id": "rule-egg-crates",
-        "name": "Egg Crates Commission",
+        "id": "rule-yams-volume",
+        "name": "Yams Commission — Volume Growth Model",
         "status": "ACTIVE",
         "basis": "NET_SALES",
         "rateType": "PERCENT",
-        "rate": 2.0,
-        "appliesTo": { "skuPrefixes": ["EGG-"], "categories": ["Eggs"] },
-        "conditions": { "minNet": 50000, "channel": ["WHATSAPP", "REFERRALS"] },
+        "rate": 7.0,
+        "appliesTo": { "skuPrefixes": ["COMM-YAMS"], "categories": ["CROPS"] },
+        "conditions": {
+          "minNet": 80000,
+          "channel": ["WHATSAPP", "REFERRALS", "DIRECT"]
+        },
+        "bonus": {
+          "type": "PERCENT",
+          "rate": 2.0,
+          "basis": "NET_SALES",
+          "conditions": {
+            "minMonthlyQty": 500,
+            "minDistinctProducts": 2
+          }
+        },
         "effectiveFrom": "2026-01-01",
-        "priority": 10
+        "priority": 120
+      },
+
+      {
+        "id": "rule-tomatoes-speed",
+        "name": "Tomatoes Commission — Fast Turnover Incentive",
+        "status": "ACTIVE",
+        "basis": "NET_SALES",
+        "rateType": "PERCENT",
+        "rate": 6.0,
+        "appliesTo": {
+          "skuPrefixes": ["COMM-TOMATOES"],
+          "categories": ["CROPS"]
+        },
+        "conditions": {
+          "minNet": 30000,
+          "maxOrderAgeHours": 24,
+          "channel": ["WHATSAPP", "REFERRALS"]
+        },
+        "bonus": {
+          "type": "PERCENT",
+          "rate": 2.0,
+          "basis": "NET_SALES",
+          "conditions": {
+            "minOrders": 10,
+            "minMonthlyNet": 250000
+          }
+        },
+        "effectiveFrom": "2026-01-01",
+        "priority": 95
+      },
+
+      {
+        "id": "rule-peppers-speed",
+        "name": "Peppers Commission — Quick Sales Push",
+        "status": "ACTIVE",
+        "basis": "NET_SALES",
+        "rateType": "PERCENT",
+        "rate": 6.5,
+        "appliesTo": {
+          "skuPrefixes": ["COMM-PEPPERS"],
+          "categories": ["CROPS"]
+        },
+        "conditions": {
+          "minNet": 30000,
+          "maxOrderAgeHours": 24
+        },
+        "bonus": {
+          "type": "PERCENT",
+          "rate": 1.5,
+          "basis": "NET_SALES",
+          "conditions": {
+            "minOrders": 12,
+            "minMonthlyNet": 250000
+          }
+        },
+        "effectiveFrom": "2026-01-01",
+        "priority": 95
+      },
+
+      {
+        "id": "rule-layers-16w-bulk",
+        "name": "16 Weeks Layers Commission — Bulk Incentive",
+        "status": "ACTIVE",
+        "basis": "NET_SALES",
+        "rateType": "PERCENT",
+        "rate": 9.5,
+        "appliesTo": {
+          "skuPrefixes": ["COMM-LAYERS-16W"],
+          "categories": ["POULTRY_OUTPUTS"]
+        },
+        "conditions": {
+          "minNet": 150000,
+          "minQty": 50,
+          "channel": ["DIRECT", "REFERRALS"]
+        },
+        "bonus": {
+          "type": "PERCENT",
+          "rate": 2.0,
+          "basis": "NET_SALES",
+          "conditions": {
+            "minQty": 100
+          }
+        },
+        "effectiveFrom": "2026-01-01",
+        "priority": 160
+      },
+
+      {
+        "id": "rule-doc-bulk",
+        "name": "Day Old Chicks Commission — Repeat Growth Model",
+        "status": "ACTIVE",
+        "basis": "NET_SALES",
+        "rateType": "PERCENT",
+        "rate": 8.0,
+        "appliesTo": {
+          "skuPrefixes": ["COMM-DOC"],
+          "categories": ["POULTRY_INPUTS"]
+        },
+        "conditions": {
+          "minNet": 50000,
+          "minQty": 300
+        },
+        "bonus": {
+          "type": "PERCENT",
+          "rate": 2.0,
+          "basis": "NET_SALES",
+          "conditions": {
+            "minQty": 500,
+            "minMonthlyQty": 1500
+          }
+        },
+        "effectiveFrom": "2026-01-01",
+        "priority": 150
+      },
+
+      {
+        "id": "rule-eggs-consistency",
+        "name": "Eggs Commission — Consistency Model",
+        "status": "ACTIVE",
+        "basis": "NET_SALES",
+        "rateType": "PERCENT",
+        "rate": 7.0,
+        "appliesTo": {
+          "skuPrefixes": ["COMM-EGGS"],
+          "categories": ["POULTRY_OUTPUTS"]
+        },
+        "conditions": {
+          "minNet": 50000,
+          "minQty": 20
+        },
+        "bonus": {
+          "type": "PERCENT",
+          "rate": 2.0,
+          "basis": "NET_SALES",
+          "conditions": {
+            "minMonthlyNet": 400000,
+            "minOrders": 8
+          }
+        },
+        "effectiveFrom": "2026-01-01",
+        "priority": 130
+      },
+
+      {
+        "id": "rule-plantains-mix",
+        "name": "Plantains Commission — Cross-Sell Incentive",
+        "status": "ACTIVE",
+        "basis": "NET_SALES",
+        "rateType": "PERCENT",
+        "rate": 6.0,
+        "appliesTo": {
+          "skuPrefixes": ["COMM-PLANTAINS"],
+          "categories": ["CROPS"]
+        },
+        "conditions": {
+          "minNet": 60000
+        },
+        "bonus": {
+          "type": "PERCENT",
+          "rate": 1.5,
+          "basis": "NET_SALES",
+          "conditions": {
+            "minDistinctProducts": 3,
+            "minMonthlyNet": 250000
+          }
+        },
+        "effectiveFrom": "2026-01-01",
+        "priority": 90
+      },
+
+      {
+        "id": "rule-sugarcane-volume",
+        "name": "Sugarcane Commission — Volume Tier",
+        "status": "ACTIVE",
+        "basis": "NET_SALES",
+        "rateType": "PERCENT",
+        "rate": 5.5,
+        "appliesTo": {
+          "skuPrefixes": ["COMM-SUGARCANE"],
+          "categories": ["CROPS"]
+        },
+        "conditions": {
+          "minNet": 40000,
+          "minQty": 200
+        },
+        "bonus": {
+          "type": "PERCENT",
+          "rate": 1.0,
+          "basis": "NET_SALES",
+          "conditions": {
+            "minMonthlyQty": 1000
+          }
+        },
+        "effectiveFrom": "2026-01-01",
+        "priority": 70
+      },
+
+      {
+        "id": "rule-palm-oil-premium",
+        "name": "Palm Oil Commission — Premium Bulk Model",
+        "status": "ACTIVE",
+        "basis": "NET_SALES",
+        "rateType": "PERCENT",
+        "rate": 8.5,
+        "appliesTo": {
+          "skuPrefixes": ["COMM-PALM-OIL"],
+          "categories": ["PROCESSED"]
+        },
+        "conditions": {
+          "minNet": 70000,
+          "minQty": 10
+        },
+        "bonus": {
+          "type": "PERCENT",
+          "rate": 2.0,
+          "basis": "NET_SALES",
+          "conditions": {
+            "minNet": 300000,
+            "minOrders": 5
+          }
+        },
+        "effectiveFrom": "2026-01-01",
+        "priority": 140
+      },
+
+      {
+        "id": "rule-broilers-premium",
+        "name": "Broilers Commission — High Value Push",
+        "status": "ACTIVE",
+        "basis": "NET_SALES",
+        "rateType": "PERCENT",
+        "rate": 10.0,
+        "appliesTo": {
+          "skuPrefixes": ["COMM-BROILERS"],
+          "categories": ["POULTRY_OUTPUTS"]
+        },
+        "conditions": {
+          "minNet": 100000,
+          "minQty": 30
+        },
+        "bonus": {
+          "type": "PERCENT",
+          "rate": 2.0,
+          "basis": "NET_SALES",
+          "conditions": {
+            "minQty": 50,
+            "minMonthlyNet": 600000
+          }
+        },
+        "effectiveFrom": "2026-01-01",
+        "priority": 170
+      },
+
+      {
+        "id": "rule-fertilizers-repeat",
+        "name": "Fertilizers Commission — Repeat Purchase Incentive",
+        "status": "ACTIVE",
+        "basis": "NET_SALES",
+        "rateType": "PERCENT",
+        "rate": 10.0,
+        "appliesTo": {
+          "skuPrefixes": ["COMM-FERTILIZERS"],
+          "categories": ["INPUTS"]
+        },
+        "conditions": {
+          "minNet": 50000
+        },
+        "bonus": {
+          "type": "PERCENT",
+          "rate": 2.0,
+          "basis": "NET_SALES",
+          "conditions": {
+            "minMonthlyNet": 300000,
+            "minOrders": 6
+          }
+        },
+        "effectiveFrom": "2026-01-01",
+        "priority": 135
+      },
+
+      {
+        "id": "rule-maize-volume",
+        "name": "Maize Commission — Volume Discipline Model",
+        "status": "ACTIVE",
+        "basis": "NET_SALES",
+        "rateType": "PERCENT",
+        "rate": 5.0,
+        "appliesTo": { "skuPrefixes": ["COMM-MAIZE"], "categories": ["CROPS"] },
+        "conditions": {
+          "minNet": 100000,
+          "minQty": 300
+        },
+        "bonus": {
+          "type": "PERCENT",
+          "rate": 2.0,
+          "basis": "NET_SALES",
+          "conditions": {
+            "minMonthlyQty": 1000,
+            "minDistinctProducts": 2
+          }
+        },
+        "effectiveFrom": "2026-01-01",
+        "priority": 60
       }
     ],
+
     "orders": [
       {
         "id": "ord-10021",
@@ -1966,6 +2391,135 @@
         "reason": "Agent mismatch",
         "status": "OPEN"
       }
+    ],
+    "products": [
+      {
+        "id": "prd-tomatoes",
+        "name": "Tomatoes",
+        "sku": "COMM-TOMATOES",
+        "category": "CROPS",
+        "unit": "KG",
+        "status": "ACTIVE",
+        "updatedAt": "2026-01-25T12:00:00Z",
+        "commission": { "type": "FLAT", "flatAmountNGN": 50 }
+      },
+      {
+        "id": "prd-peppers",
+        "name": "Peppers",
+        "sku": "COMM-PEPPERS",
+        "category": "CROPS",
+        "unit": "KG",
+        "status": "ACTIVE",
+        "updatedAt": "2026-01-25T12:00:00Z",
+        "commission": { "type": "FLAT", "flatAmountNGN": 60 }
+      },
+      {
+        "id": "prd-yams",
+        "name": "Yams",
+        "sku": "COMM-YAMS",
+        "category": "CROPS",
+        "unit": "TUBER",
+        "status": "ACTIVE",
+        "updatedAt": "2026-01-25T12:00:00Z",
+        "commission": { "type": "PERCENT_BANDED" }
+      },
+      {
+        "id": "prd-plantains",
+        "name": "Plantains",
+        "sku": "COMM-PLANTAINS",
+        "category": "CROPS",
+        "unit": "BUNCH",
+        "status": "ACTIVE",
+        "updatedAt": "2026-01-25T12:00:00Z",
+        "commission": { "type": "FLAT", "flatAmountNGN": 120 }
+      },
+      {
+        "id": "prd-maize",
+        "name": "Maize",
+        "sku": "COMM-MAIZE",
+        "category": "CROPS",
+        "unit": "KG",
+        "status": "INACTIVE",
+        "updatedAt": "2026-01-24T10:10:00Z",
+        "commission": { "type": "FLAT", "flatAmountNGN": 30 }
+      },
+      {
+        "id": "prd-palm-oil",
+        "name": "Palm Oil",
+        "sku": "COMM-PALM-OIL",
+        "category": "PROCESSED",
+        "unit": "LITER",
+        "status": "ACTIVE",
+        "updatedAt": "2026-01-25T12:00:00Z",
+        "commission": { "type": "FLAT", "flatAmountNGN": 80 }
+      },
+      {
+        "id": "prd-sugarcane",
+        "name": "Sugarcane",
+        "sku": "COMM-SUGARCANE",
+        "category": "CROPS",
+        "unit": "STICK",
+        "status": "ACTIVE",
+        "updatedAt": "2026-01-25T12:00:00Z",
+        "commission": { "type": "FLAT", "flatAmountNGN": 15 }
+      },
+      {
+        "id": "prd-day-old-chicks",
+        "name": "Day Old Chicks",
+        "sku": "COMM-DOC",
+        "category": "POULTRY_INPUTS",
+        "unit": "BIRD",
+        "status": "ACTIVE",
+        "updatedAt": "2026-01-25T12:00:00Z",
+        "commission": { "type": "FLAT", "flatAmountNGN": 25 }
+      },
+      {
+        "id": "prd-broilers",
+        "name": "Broilers",
+        "sku": "COMM-BROILERS",
+        "category": "POULTRY_OUTPUTS",
+        "unit": "BIRD",
+        "status": "ACTIVE",
+        "updatedAt": "2026-01-25T12:00:00Z",
+        "commission": { "type": "FLAT", "flatAmountNGN": 150 }
+      },
+      {
+        "id": "prd-layers-16w",
+        "name": "16 Weeks Layers",
+        "sku": "COMM-LAYERS-16W",
+        "category": "POULTRY_OUTPUTS",
+        "unit": "BIRD",
+        "status": "ACTIVE",
+        "updatedAt": "2026-01-25T12:00:00Z",
+        "commission": { "type": "FLAT", "flatAmountNGN": 200 }
+      },
+      {
+        "id": "prd-eggs",
+        "name": "Eggs",
+        "sku": "COMM-EGGS",
+        "category": "POULTRY_OUTPUTS",
+        "unit": "CRATE",
+        "status": "ACTIVE",
+        "updatedAt": "2026-01-25T12:00:00Z",
+        "commission": { "type": "FLAT", "flatAmountNGN": 300 }
+      },
+      {
+        "id": "prd-fertilizers",
+        "name": "Fertilizers",
+        "sku": "COMM-FERTILIZERS",
+        "category": "INPUTS",
+        "unit": "BAG",
+        "status": "ACTIVE",
+        "updatedAt": "2026-01-25T12:00:00Z",
+        "commission": { "type": "FLAT", "flatAmountNGN": 100 }
+      }
+    ],
+    "payoutBands": [
+      { "min": 0, "max": 500000, "ratePct": 5 },
+      { "min": 500001, "max": 1000000, "ratePct": 8 },
+      { "min": 1000001, "max": 20000000, "ratePct": 9 },
+      { "min": 20000001, "max": 50000000, "ratePct": 10 },
+      { "min": 50000001, "max": null, "ratePct": 12 }
     ]
   }
 }

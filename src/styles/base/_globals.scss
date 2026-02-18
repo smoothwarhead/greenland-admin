@@ -1,0 +1,25 @@
+:root {
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-14);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--letter);
+  color: var(--text);
+  background: var(--bg);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--primary) 35%, transparent);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+}

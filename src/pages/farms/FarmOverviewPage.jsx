@@ -12,6 +12,7 @@ import { PERM } from "../../app/perms";
 import { fmtInt, fmtNaira, formatDate, computeHouseHealth } from "../../utils/methods";
 import Card from "../../components/ui/Card";
 import "./overviews.scss";
+import {Button} from "../../components/ui/buttons/Buttons";
 
 
 
@@ -194,7 +195,7 @@ export default function FarmOverviewPage() {
     <div className="page">
       {/* Header */}
       <div className="pageTop">
-        <div>
+        {/* <div>
           <div className="pageTitle">{farm.name} — Farm Overview</div>
           <div className="pageMeta">
             <span className="muted">{farm.location}</span>
@@ -207,12 +208,15 @@ export default function FarmOverviewPage() {
               </>
             ) : null}
           </div>
-        </div>
+        </div> */}
 
         <div className="pageActions">
-          <button className="btn">Create Task</button>
-          <button className="btn">Log Issue</button>
-          <button className="btn primary">New Expense</button>
+
+          <Button variant="primary" text="Record Production" />
+          <Button variant="" text="Add Transaction" />
+          <Button variant="" text="Manage Users" />
+          <Button variant="" text="Create Task" />
+          
         </div>
       </div>
 

@@ -1,0 +1,135 @@
+// src/styles/product-card.scss
+.productCard {
+  width: calc(100%/3 - 20px);
+  background: var(--bg);
+  border: 1px solid var(--selected);
+  border-radius: 16px;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--text);
+    transform: translateY(-2px);
+  }
+
+
+
+  .productCardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+
+
+    .productTitle {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .status {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      font-weight: 500;
+
+      &.active {
+        background: rgba(34, 197, 94, 0.15);
+        color: #22c55e;
+      }
+
+      &.inactive {
+        background: rgba(239, 68, 68, 0.15);
+        color: #ef4444;
+      }
+    }
+
+    
+  }
+
+
+  .productMeta {
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    // .dot{
+    //   font-size: 1rem;
+    // }
+
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--grey);
+    margin: 10px 0;
+
+  }
+
+  .sectionTitle {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+
+  .commissionBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .commissionValue {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+  }
+
+  .badge {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 8px;
+
+    &.flat {
+      background: rgba(59, 130, 246, 0.15);
+      color: #3b82f6;
+    }
+
+    &.percent {
+      background: rgba(168, 85, 247, 0.15);
+      color: #a855f7;
+    }
+  }
+
+  .productFooter {
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    // justify-content: space-between;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 30px;
+
+    // .btn {
+    //   flex: 1;
+    // }
+  }
+
+
+
+}

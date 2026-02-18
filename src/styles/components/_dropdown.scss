@@ -1,0 +1,26 @@
+.dropdown {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 280px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-16);
+  box-shadow: var(--shadow-md);
+  z-index: var(--z-dropdown);
+  overflow: hidden;
+}
+
+.dropdownItem {
+  padding: 10px 12px;
+  cursor: pointer;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.dropdownItem:hover { background: var(--surface-2); color: var(--text); }
+.dropdownItem:last-child { border-bottom: none; }

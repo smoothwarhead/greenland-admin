@@ -1,0 +1,49 @@
+.prdts-actions{
+    width: 100%;
+    padding: 1rem 0;
+    margin-bottom: 30px;
+    display: flex;
+    gap: 30px;
+   
+    .f-item{
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        // gap: 4px;
+        padding: 5px;
+        color: var(--muted);
+        cursor: pointer;
+
+        .f-icon{
+            font-size: 1.2rem;
+        }
+
+        .f-label{
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .f-dot{
+            font-size: 0.7rem;
+        }
+
+        &:hover{
+            color: var(--text);
+            font-weight: 600;
+        }
+
+    }
+
+    .filter-selected{
+        color: var(--xtra);
+        font-weight: 800;
+    }
+}
+
+.prdts-con{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}

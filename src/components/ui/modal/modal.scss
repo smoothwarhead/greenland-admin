@@ -1,0 +1,107 @@
+:root {
+  --ge-green: #4c6c5a;
+  --ge-cream: #ede3c9;
+  --ge-ink: #262626;
+  --ge-white: #fdfdfd;
+  --ge-line: #d8dcd8;
+}
+
+.geModalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(38, 38, 38, 0.45);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  z-index: 9999;
+
+  animation: geFadeIn 160ms ease-out;
+}
+
+.geModalPanel {
+  width: min(720px, 100%);
+  max-height: min(86vh, 900px);
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--ge-white);
+  border: 1px solid rgba(76, 108, 90, 0.18);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.25);
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  outline: none;
+  animation: gePopIn 170ms ease-out;
+
+  &--sm { width: min(520px, 100%); }
+  &--md { width: min(720px, 100%); }
+  &--lg { width: min(920px, 100%); }
+  &--xl { width: min(1100px, 100%); }
+}
+
+.geModalHeader {
+  padding: 14px 14px 10px 14px;
+  border-bottom: 1px solid rgba(216, 220, 216, 0.9);
+  background: linear-gradient(180deg, #fff, rgba(237, 227, 201, 0.35));
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.geModalTitle {
+  font-size: 16px;
+  font-weight: 950;
+  color: var(--ge-ink);
+  line-height: 1.15;
+}
+
+.geModalSubtitle {
+  margin-top: 4px;
+  font-size: 13px;
+  color: rgba(83, 82, 81, 0.85);
+  font-weight: 650;
+}
+
+.geModalHeader__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.geModalClose {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px solid rgba(76, 108, 90, 0.18);
+  background: #fff;
+  cursor: pointer;
+  font-weight: 900;
+  color: var(--ge-ink);
+
+  &:hover {
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.geModalBody {
+  padding: 14px;
+  overflow: auto;
+}
+
+.geModalFooter {
+  padding: 12px 14px;
+  border-top: 1px solid rgba(216, 220, 216, 0.9);
+  background: linear-gradient(0deg, rgba(237, 227, 201, 0.45), #fff);
+}
+
+@keyframes geFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes gePopIn {
+  from { transform: translateY(8px) scale(0.98); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}

@@ -1,0 +1,25 @@
+@use "../tokens/breakpoints" as *;
+
+@mixin mq($size) {
+  @if $size == sm { @media (max-width: $bp-sm) { @content; } }
+  @else if $size == md { @media (max-width: $bp-md) { @content; } }
+  @else if $size == lg { @media (max-width: $bp-lg) { @content; } }
+  @else if $size == xl { @media (max-width: $bp-xl) { @content; } }
+}
+
+@mixin focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--focus);
+}
+
+@mixin glass {
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
